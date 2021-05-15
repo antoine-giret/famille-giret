@@ -1,0 +1,17 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "install",
+      "open": true,
+      "onlySingle": true,
+      "command": "yarn install"
+    }, 
+    {
+      "name": "start",
+      "open": true,
+      "onlySingle": true,
+      "command": "yarn start"
+    }
+  ]
+}
