@@ -4,11 +4,12 @@
   "private": true,
   "author": "Antoine Giret",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "develop": "env-cmd gatsby develop",
+    "start": "env-cmd gatsby develop",
+    "build": "env-cmd gatsby build",
+    "serve": "env-cmd gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
     "gatsby": "3.4.1",
@@ -17,9 +18,32 @@
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0"
   },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "4.24.0",
+    "@typescript-eslint/parser": "4.24.0",
+    "env-cmd": "10.1.0",
+    "eslint": "7.26.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.23.2",
+    "husky": "6.0.0",
+    "lint-staged": "11.0.0",
+    "prettier": "2.3.0",
+    "typescript": "4.2.4"
+  },
   "engines": {
     "node": ">= 14.15.0",
     "npm": "please-use-yarn",
     "yarn": ">= 1.22.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }

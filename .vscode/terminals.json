@@ -12,6 +12,12 @@
       "open": true,
       "onlySingle": true,
       "command": "yarn start"
+    }, 
+    {
+      "name": "lint",
+      "open": true,
+      "onlySingle": true,
+      "command": "yarn lint"
     }
   ]
 }
