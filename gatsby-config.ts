@@ -6,6 +6,7 @@ export = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-prismic',
       options: {
