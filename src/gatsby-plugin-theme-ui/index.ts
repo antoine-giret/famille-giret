@@ -16,4 +16,15 @@ export default {
       fontWeight: 'body',
     },
   },
+  buttons: {
+    menu: {
+      cursor: 'pointer',
+      '&:hover': {
+        bg: 'rgba(0, 0, 0, 0.1)',
+      },
+      '&:active': {
+        bg: 'rgba(0, 0, 0, 0.2)',
+      },
+    },
+  },
 };
