@@ -1678,7 +1678,7 @@
   resolved "https://registry.yarnpkg.com/@theme-ui/preset-base/-/preset-base-0.8.4.tgz#37b40aae18556dfc28f19856f90a0bedf8e6ccb3"
   integrity sha512-oLMnt4XH4rkPEMafbjh0vULMf/NlDM+gEMrRkfuprLY3MzVeQcPE0VM0OQ3aG9j+m2hZq42L/u3WayMDWxmUJg==
 
-"@theme-ui/preset-roboto@^0.8.4":
+"@theme-ui/preset-roboto@0.8.4":
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/@theme-ui/preset-roboto/-/preset-roboto-0.8.4.tgz#c2215df637f14529823f49310301818ea1a893f8"
   integrity sha512-X/gT0bxf9WFyegn1vkofeme8by72v38kb7fi1PFS9ma72JMXP82cPVb4781x+kNSA21hQ1bU7GHF426oXZLEyg==
@@ -4532,7 +4532,7 @@ eslint-plugin-graphql@^4.0.0:
     lodash.flatten "^4.4.0"
     lodash.without "^4.4.0"
 
-eslint-plugin-import@^2.22.1:
+eslint-plugin-import@2.23.2, eslint-plugin-import@^2.22.1:
   version "2.23.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.23.2.tgz#ee15dd68fc7a1a1ba4c653c734e0d01c100d3484"
   integrity sha512-LmNoRptHBxOP+nb0PIKz1y6OSzCJlB+0g0IGS3XV4KaKk2q4szqQ6s6F1utVf5ZRkxk/QOTjdxe7v4VjS99Bsg==

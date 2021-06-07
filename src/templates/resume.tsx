@@ -1,5 +1,6 @@
-import React from 'react';
 import { graphql } from 'gatsby';
+import React from 'react';
+
 
 export function ResumeTemplate({ data }: { data: IData }): JSX.Element {
   if (!data) return null;
