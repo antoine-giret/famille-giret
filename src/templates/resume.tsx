@@ -1,8 +1,11 @@
-import { Avatar, Box, Heading, Paragraph } from '@theme-ui/components';
+import { AspectImage, Avatar, Box, Heading, Link, Paragraph, Text } from '@theme-ui/components';
 import { graphql } from 'gatsby';
+import moment from 'moment';
 import React from 'react';
 
 import Layout from '../layouts/default';
+
+moment.locale('fr');
 
 export function ResumeTemplate({ data }: { data: IData }): JSX.Element {
   if (!data) return null;
@@ -23,10 +26,22 @@ export function ResumeTemplate({ data }: { data: IData }): JSX.Element {
         <Paragraph
           color="textSecondary"
           dangerouslySetInnerHTML={{ __html: resume }}
-          sx={{ maxWidth: '80ch', textAlign: 'center', fontWeight: 200 }}
+          sx={{
+            fontSize: '1em',
+            fontWeight: 200,
+            maxWidth: '100%',
+            textAlign: 'center',
+            width: 800,
+          }}
         />
-        <section>
-          <h3>Expériences</h3>
+        <Box as="section" sx={{ marginTop: 48, maxWidth: '100%', width: 800 }}>
+          <Heading
+            as="h3"
+            color="secondary"
+            sx={{ fontSize: '1.5em', fontWeight: 200, textAlign: 'center' }}
+          >
+            Expériences
+          </Heading>
           {experiences.map(
             (
               {
@@ -42,36 +57,54 @@ export function ResumeTemplate({ data }: { data: IData }): JSX.Element {
               },
               index,
             ) => (
-              <div key={index}>
-                {companyLogo.url && <img alt={companyLogo.alt} src={companyLogo.url} />}
-                <h4>{experienceTitle}</h4>
-                <p>
-                  {companyUrl ? (
-                    <a href={companyUrl} rel="noreferrer" target="_blank">
-                      {company}
-                    </a>
-                  ) : (
-                    <span>{company}</span>
+              <Box key={index} sx={{ display: 'flex', marginTop: 24 }}>
+                <Box sx={{ backgroundColor: 'whitesmoke', height: 100, width: 100 }}>
+                  {companyLogo.url && (
+                    <AspectImage alt={companyLogo.alt} ratio={1} src={companyLogo.url} />
                   )}
-                  {location && (
-                    <>
-                      &nbsp;&bull;&nbsp;<span>{location}</span>
-                    </>
-                  )}
-                  &nbsp;&bull;&nbsp;
-                  {current ? (
-                    <span>Depuis le {startDate}</span>
-                  ) : (
-                    <span>
-                      Du {startDate} au {endDate}
-                    </span>
-                  )}
-                </p>
-                <div dangerouslySetInnerHTML={{ __html: experienceDescription }} />
-              </div>
+                </Box>
+                <Box sx={{ marginLeft: 16 }}>
+                  <Heading as="h5" sx={{ fontSize: '1.1em', fontWeight: 200 }}>
+                    {experienceTitle}
+                  </Heading>
+                  <Paragraph color="textSecondary" sx={{ fontSize: '1em', fontWeight: 200 }}>
+                    {companyUrl ? (
+                      <Link
+                        color="textSecondary"
+                        href={companyUrl}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        {company}
+                      </Link>
+                    ) : (
+                      <Text>{company}</Text>
+                    )}
+                    {location && (
+                      <>
+                        &nbsp;&#8729;&nbsp;<Text>{location}</Text>
+                      </>
+                    )}
+                    &nbsp;&#8729;&nbsp;
+                    {current ? (
+                      <Text>Depuis {moment(startDate).format('MMMM YYYY')}</Text>
+                    ) : (
+                      <Text>
+                        De {moment(startDate).format('MMMM YYYY')} à{' '}
+                        {moment(endDate).format('MMMM YYYY')}
+                      </Text>
+                    )}
+                  </Paragraph>
+                  <Box
+                    color="textSecondary"
+                    dangerouslySetInnerHTML={{ __html: experienceDescription }}
+                    sx={{ fontSize: '0.9em', fontWeight: 200 }}
+                  />
+                </Box>
+              </Box>
             ),
           )}
-        </section>
+        </Box>
       </Box>
     </Layout>
   );
