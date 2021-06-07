@@ -4,6 +4,7 @@ export default {
   ...theme,
   colors: {
     text: '#212121',
+    textSecondary: '#757575',
     background: '#fff',
     primary: '#009688',
     secondary: '#ffC107',
