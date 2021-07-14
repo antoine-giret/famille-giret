@@ -2,6 +2,11 @@ import theme from '@theme-ui/preset-roboto';
 
 export default {
   ...theme,
+  breakpoints: [
+    '@media (min-width: 600px)',
+    '@media (min-width: 960px)',
+    '@media (min-width: 1200px)',
+  ],
   colors: {
     text: '#212121',
     textSecondary: '#757575',
