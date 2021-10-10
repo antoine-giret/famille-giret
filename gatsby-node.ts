@@ -15,7 +15,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     }
   `);
 
-  pages.data.allPrismicResume.nodes.forEach(({ uid }) => {
+  pages.data?.allPrismicResume.nodes.forEach(({ uid }) => {
     createPage({
       path: `resume/${uid}`,
       component: resolve(__dirname, 'src/templates/resume.tsx'),
