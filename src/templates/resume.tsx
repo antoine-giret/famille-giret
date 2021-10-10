@@ -1,12 +1,10 @@
 import { AspectImage, Avatar, Box, Heading, Link, Paragraph, Text } from '@theme-ui/components';
 import { graphql } from 'gatsby';
-import moment from 'moment';
+import { DateTime } from 'luxon';
 import React from 'react';
 import { AspectRatio } from 'theme-ui';
 
 import Layout from '../layouts/default';
-
-moment.locale('fr');
 
 export function ResumeTemplate({ data }: { data: IData }): JSX.Element {
   if (!data) return null;
@@ -41,7 +39,7 @@ export function ResumeTemplate({ data }: { data: IData }): JSX.Element {
             color="secondary"
             sx={{ fontSize: '1.5em', fontWeight: 200, textAlign: 'center' }}
           >
-            Expériences
+            Experiences
           </Heading>
           {experiences.map(
             (
@@ -125,11 +123,14 @@ export function ResumeTemplate({ data }: { data: IData }): JSX.Element {
                         {location && <Text>{location}</Text>}
                         &nbsp;&#8729;&nbsp;
                         {current ? (
-                          <Text>Depuis {moment(startDate).format('MMMM YYYY')}</Text>
+                          <Text>
+                            Since{' '}
+                            {DateTime.fromISO(startDate).setLocale('en').toFormat('MMMM yyyy')}
+                          </Text>
                         ) : (
                           <Text>
-                            De {moment(startDate).format('MMMM YYYY')} à{' '}
-                            {moment(endDate).format('MMMM YYYY')}
+                            From {DateTime.fromISO(startDate).setLocale('en').toFormat('MMMM yyyy')}{' '}
+                            to {DateTime.fromISO(endDate).setLocale('en').toFormat('MMMM yyyy')}
                           </Text>
                         )}
                       </Paragraph>
