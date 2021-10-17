@@ -30,5 +30,6 @@ export = {
         },
       },
     },
+    'gatsby-plugin-graphql-codegen',
   ],
 };

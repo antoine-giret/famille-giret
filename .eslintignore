@@ -1,3 +1,4 @@
 node_modules
 .cache
 public
+graphql-types.ts
