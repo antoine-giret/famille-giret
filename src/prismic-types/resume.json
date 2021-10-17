@@ -108,6 +108,66 @@
         },
         "label" : "experiences"
       }
+    },
+    "training" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "school_logo" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Training logo"
+            }
+          },
+          "school_name" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading3",
+              "label" : "School name",
+              "placeholder" : "Polytech Tours"
+            }
+          },
+          "school_website" : {
+            "type" : "Link",
+            "config" : {
+              "allowTargetBlank" : true,
+              "label" : "School website",
+              "placeholder" : "https://polytech.univ-tours.fr/"
+            }
+          },
+          "degree" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading6",
+              "label" : "Degree",
+              "placeholder" : "Diplôme d'ingénieur"
+            }
+          },
+          "start_date" : {
+            "type" : "Date",
+            "config" : {
+              "label" : "start_date"
+            }
+          },
+          "end_date" : {
+            "type" : "Date",
+            "config" : {
+              "label" : "end_date"
+            }
+          },
+          "additional_data" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, strong, em, hyperlink, list-item, o-list-item",
+              "allowTargetBlank" : true,
+              "label" : "Additional data"
+            }
+          }
+        },
+        "label" : "training"
+      }
     }
   }
 }

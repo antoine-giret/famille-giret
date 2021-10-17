@@ -318,6 +318,11 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginPluginOptions = {
+  path?: Maybe<Scalars['String']>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
   repositoryName?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   schemas?: Maybe<SitePluginPluginOptionsSchemas>;
@@ -326,11 +331,6 @@ export type SitePluginPluginOptions = {
   imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>;
   apiEndpoint?: Maybe<Scalars['String']>;
   pageSize?: Maybe<Scalars['Int']>;
-  path?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsSchemas = {
@@ -347,6 +347,7 @@ export type SitePluginPluginOptionsSchemasResumeMain = {
   name?: Maybe<SitePluginPluginOptionsSchemasResumeMainName>;
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResume>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiences>;
+  training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTraining>;
 };
 
 export type SitePluginPluginOptionsSchemasResumeMainUid = {
@@ -505,6 +506,97 @@ export type SitePluginPluginOptionsSchemasResumeMainExperiencesConfigFieldsDescr
   allowTargetBlank?: Maybe<Scalars['Boolean']>;
   label?: Maybe<Scalars['String']>;
   placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTraining = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfig = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFields>;
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFields = {
+  school_logo?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_Logo>;
+  school_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_Name>;
+  school_website?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_Website>;
+  degree?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegree>;
+  start_date?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_Date>;
+  end_date?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_Date>;
+  additional_data?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_Data>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_Logo = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_LogoConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_LogoConfig = {
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_Name = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_NameConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_NameConfig = {
+  single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_Website = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_WebsiteConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_WebsiteConfig = {
+  allowTargetBlank?: Maybe<Scalars['Boolean']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegree = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegreeConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegreeConfig = {
+  single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_Date = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_DateConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_DateConfig = {
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_Date = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_DateConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_DateConfig = {
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_Data = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_DataConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_DataConfig = {
+  multi?: Maybe<Scalars['String']>;
+  allowTargetBlank?: Maybe<Scalars['Boolean']>;
+  label?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -1328,11 +1420,93 @@ export type PrismicResumeDataThumbnailImageTypeGatsbyImageDataArgs = {
   srcSetMaxWidth?: Maybe<Scalars['Int']>;
 };
 
+export type PrismicResumeDataTrainingSchoolLogoImageType = {
+  alt?: Maybe<Scalars['String']>;
+  copyright?: Maybe<Scalars['String']>;
+  dimensions?: Maybe<PrismicImageDimensionsType>;
+  /** A plain imgix URL with the URL and params applied. */
+  url?: Maybe<Scalars['String']>;
+  /** Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are "fixed"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information. */
+  fixed?: Maybe<ImgixFixed>;
+  /** Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information. */
+  fluid?: Maybe<ImgixFluid>;
+  gatsbyImageData?: Maybe<Scalars['JSON']>;
+  localFile?: Maybe<File>;
+};
+
+
+export type PrismicResumeDataTrainingSchoolLogoImageTypeUrlArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicResumeDataTrainingSchoolLogoImageTypeFixedArgs = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  quality?: Maybe<Scalars['Int']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicResumeDataTrainingSchoolLogoImageTypeFluidArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicResumeDataTrainingSchoolLogoImageTypeGatsbyImageDataArgs = {
+  layout?: Maybe<GatsbyImageLayout>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  aspectRatio?: Maybe<Scalars['Float']>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  breakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  sizes?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+  placeholder?: Maybe<ImgixPlaceholder>;
+  widthTolerance?: Maybe<Scalars['Float']>;
+  srcSetMinWidth?: Maybe<Scalars['Int']>;
+  srcSetMaxWidth?: Maybe<Scalars['Int']>;
+};
+
+export type PrismicResumeDataTraining = {
+  additional_data?: Maybe<PrismicStructuredTextType>;
+  degree?: Maybe<PrismicStructuredTextType>;
+  end_date?: Maybe<Scalars['Date']>;
+  school_logo?: Maybe<PrismicResumeDataTrainingSchoolLogoImageType>;
+  school_name?: Maybe<PrismicStructuredTextType>;
+  school_website?: Maybe<PrismicLinkType>;
+  start_date?: Maybe<Scalars['Date']>;
+};
+
+
+export type PrismicResumeDataTrainingEnd_DateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type PrismicResumeDataTrainingStart_DateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
 export type PrismicResumeDataType = {
   experiences?: Maybe<Array<Maybe<PrismicResumeDataExperiences>>>;
   name?: Maybe<PrismicStructuredTextType>;
   resume?: Maybe<PrismicStructuredTextType>;
   thumbnail?: Maybe<PrismicResumeDataThumbnailImageType>;
+  training?: Maybe<Array<Maybe<PrismicResumeDataTraining>>>;
 };
 
 export type PrismicResume = Node & {
@@ -2691,6 +2865,11 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
   repositoryName?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>;
@@ -2699,11 +2878,6 @@ export type SitePluginPluginOptionsFilterInput = {
   imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>;
   apiEndpoint?: Maybe<StringQueryOperatorInput>;
   pageSize?: Maybe<IntQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
-  allExtensions?: Maybe<BooleanQueryOperatorInput>;
-  isTSX?: Maybe<BooleanQueryOperatorInput>;
-  jsxPragma?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsSchemasFilterInput = {
@@ -2720,6 +2894,7 @@ export type SitePluginPluginOptionsSchemasResumeMainFilterInput = {
   name?: Maybe<SitePluginPluginOptionsSchemasResumeMainNameFilterInput>;
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResumeFilterInput>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiencesFilterInput>;
+  training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingFilterInput>;
 };
 
 export type SitePluginPluginOptionsSchemasResumeMainUidFilterInput = {
@@ -2878,6 +3053,97 @@ export type SitePluginPluginOptionsSchemasResumeMainExperiencesConfigFieldsDescr
   allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
   placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFilterInput = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsFilterInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsFilterInput = {
+  school_logo?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_LogoFilterInput>;
+  school_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_NameFilterInput>;
+  school_website?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_WebsiteFilterInput>;
+  degree?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegreeFilterInput>;
+  start_date?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_DateFilterInput>;
+  end_date?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_DateFilterInput>;
+  additional_data?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_DataFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_LogoFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_LogoConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_LogoConfigFilterInput = {
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_NameFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_NameConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_NameConfigFilterInput = {
+  single?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_WebsiteFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_WebsiteConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsSchool_WebsiteConfigFilterInput = {
+  allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegreeFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegreeConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsDegreeConfigFilterInput = {
+  single?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_DateFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_DateConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsStart_DateConfigFilterInput = {
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_DateFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_DateConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsEnd_DateConfigFilterInput = {
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_DataFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_DataConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAdditional_DataConfigFilterInput = {
+  multi?: Maybe<StringQueryOperatorInput>;
+  allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsImageImgixParamsFilterInput = {
@@ -3078,6 +3344,11 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
   | 'pluginCreator___pluginFilepath'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___repositoryName'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___lang'
@@ -3089,11 +3360,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginCreator___pluginOptions___apiEndpoint'
   | 'pluginCreator___pluginOptions___pageSize'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___packageJson___name'
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
@@ -3265,6 +3531,11 @@ export type SitePluginFieldsEnum =
   | 'browserAPIs'
   | 'ssrAPIs'
   | 'pluginFilepath'
+  | 'pluginOptions___path'
+  | 'pluginOptions___pathCheck'
+  | 'pluginOptions___allExtensions'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
   | 'pluginOptions___repositoryName'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___lang'
@@ -3276,11 +3547,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginOptions___apiEndpoint'
   | 'pluginOptions___pageSize'
-  | 'pluginOptions___path'
-  | 'pluginOptions___pathCheck'
-  | 'pluginOptions___allExtensions'
-  | 'pluginOptions___isTSX'
-  | 'pluginOptions___jsxPragma'
   | 'packageJson___name'
   | 'packageJson___description'
   | 'packageJson___version'
@@ -4198,6 +4464,7 @@ export type PrismicResumeDataTypeFilterInput = {
   name?: Maybe<PrismicStructuredTextTypeFilterInput>;
   resume?: Maybe<PrismicStructuredTextTypeFilterInput>;
   thumbnail?: Maybe<PrismicResumeDataThumbnailImageTypeFilterInput>;
+  training?: Maybe<PrismicResumeDataTrainingFilterListInput>;
 };
 
 export type PrismicResumeDataExperiencesFilterListInput = {
@@ -4290,6 +4557,31 @@ export type IdQueryOperatorInput = {
 };
 
 export type PrismicResumeDataThumbnailImageTypeFilterInput = {
+  alt?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  fixed?: Maybe<ImgixFixedFilterInput>;
+  fluid?: Maybe<ImgixFluidFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
+  localFile?: Maybe<FileFilterInput>;
+};
+
+export type PrismicResumeDataTrainingFilterListInput = {
+  elemMatch?: Maybe<PrismicResumeDataTrainingFilterInput>;
+};
+
+export type PrismicResumeDataTrainingFilterInput = {
+  additional_data?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  degree?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  end_date?: Maybe<DateQueryOperatorInput>;
+  school_logo?: Maybe<PrismicResumeDataTrainingSchoolLogoImageTypeFilterInput>;
+  school_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  school_website?: Maybe<PrismicLinkTypeFilterInput>;
+  start_date?: Maybe<DateQueryOperatorInput>;
+};
+
+export type PrismicResumeDataTrainingSchoolLogoImageTypeFilterInput = {
   alt?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>;
@@ -4451,6 +4743,34 @@ export type PrismicResumeFieldsEnum =
   | 'data___thumbnail___localFile___birthtimeMs'
   | 'data___thumbnail___localFile___id'
   | 'data___thumbnail___localFile___children'
+  | 'data___training'
+  | 'data___training___additional_data___text'
+  | 'data___training___additional_data___html'
+  | 'data___training___additional_data___raw'
+  | 'data___training___degree___text'
+  | 'data___training___degree___html'
+  | 'data___training___degree___raw'
+  | 'data___training___end_date'
+  | 'data___training___school_logo___alt'
+  | 'data___training___school_logo___copyright'
+  | 'data___training___school_logo___url'
+  | 'data___training___school_logo___gatsbyImageData'
+  | 'data___training___school_name___text'
+  | 'data___training___school_name___html'
+  | 'data___training___school_name___raw'
+  | 'data___training___school_website___link_type'
+  | 'data___training___school_website___isBroken'
+  | 'data___training___school_website___url'
+  | 'data___training___school_website___target'
+  | 'data___training___school_website___size'
+  | 'data___training___school_website___id'
+  | 'data___training___school_website___type'
+  | 'data___training___school_website___tags'
+  | 'data___training___school_website___lang'
+  | 'data___training___school_website___slug'
+  | 'data___training___school_website___uid'
+  | 'data___training___school_website___raw'
+  | 'data___training___start_date'
   | 'dataRaw'
   | 'prismicId'
   | 'alternate_languages'
@@ -4630,5 +4950,8 @@ export type PageQuery = { allPrismicResume: { edges: Array<{ node: (
         & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'alt' | 'url'>>, name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>>, experiences?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataExperiences, 'start_date' | 'current' | 'end_date'>
             & { company_logo?: Maybe<Pick<PrismicResumeDataExperiencesCompanyLogoImageType, 'alt' | 'url'>>, company_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, company_website?: Maybe<Pick<PrismicLinkType, 'url'>>, location?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, description?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
+          )>>>, training?: Maybe<Array<Maybe<(
+            Pick<PrismicResumeDataTraining, 'start_date' | 'end_date'>
+            & { school_logo?: Maybe<Pick<PrismicResumeDataTrainingSchoolLogoImageType, 'alt' | 'url'>>, school_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, school_website?: Maybe<Pick<PrismicLinkType, 'url'>>, degree?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, additional_data?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
           )>>> }> }
       ) }> } };
