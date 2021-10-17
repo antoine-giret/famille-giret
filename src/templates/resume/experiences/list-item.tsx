@@ -10,7 +10,7 @@ interface IProps {
   index: number;
 }
 
-function Experience({ data: { experiences }, index }: IProps): JSX.Element {
+function ExperiencesListItem({ data: { experiences }, index }: IProps): JSX.Element {
   const {
     company_logo: companyLogo,
     company_name: { text: company },
@@ -50,4 +50,4 @@ function Experience({ data: { experiences }, index }: IProps): JSX.Element {
   );
 }
 
-export default Experience;
+export default ExperiencesListItem;

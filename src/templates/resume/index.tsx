@@ -5,7 +5,7 @@ import React from 'react';
 import { PageQuery } from '../../../graphql-types';
 import Layout from '../../layouts/default';
 
-import Experiences from './experiences';
+import ExperiencesList from './experiences/list';
 import Header from './header';
 
 export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Element {
@@ -19,7 +19,7 @@ export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Elemen
     <Layout title={`CV ${name}`}>
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Header data={data} />
-        <Experiences data={data} />
+        <ExperiencesList data={data} />
       </Box>
     </Layout>
   );
