@@ -1,0 +1,2 @@
+(self.webpackChunkfamille_giret=self.webpackChunkfamille_giret||[]).push([[691],{6738:function(e,l,t){"use strict";t.r(l);var n=t(7294);l.default=function(){return n.createElement("main",null,n.createElement("title",null,"Index"),n.createElement("h1",null,"Hello World"))}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-b45343841e8aadacc4e5.js.map
