@@ -2,14 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+
+    environment: production
 
     strategy:
       matrix:
@@ -24,11 +26,33 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: Cache Node.js modules
+      id: yarn-cache
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
     - name: Install dependencies
-      run: npm install
+      run: yarn install --frozen-lockfile --silent
+      env:
+        CI: true
+
+    - name: Create env file
+      run: |
+        touch .env
+        echo PRISMIC_REPOSITORY_NAME=${{ secrets.PRISMIC_REPOSITORY_NAME }} >> .env
+        echo PRISMIC_ACCESS_TOKEN=${{ secrets.PRISMIC_ACCESS_TOKEN }} >> .env
+        cat .env
 
     - name: Run the tests
-      run: npm run lint
+      run: yarn lint
 
     - name: Build
-      run: npm run build
+      run: yarn build
