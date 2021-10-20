@@ -25,7 +25,7 @@ function TrainingListItem({ data: { training }, index }: IProps): JSX.Element {
     <ResumeListItem
       description={additionalData}
       enableBorderTop={index > 0}
-      logo={schoolLogo}
+      logo={schoolLogo.gatsbyImageData}
       subHeader={
         <Text>
           From {DateTime.fromISO(startDate).setLocale('en').toFormat('yyyy')} to{' '}

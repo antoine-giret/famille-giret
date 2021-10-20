@@ -28,7 +28,7 @@ function ExperiencesListItem({ data: { experiences }, index }: IProps): JSX.Elem
     <ResumeListItem
       description={experienceDescription}
       enableBorderTop={index > 0 && !isSameCompany}
-      logo={companyLogo}
+      logo={companyLogo.gatsbyImageData}
       shrinked={isSameCompany}
       subHeader={
         <>

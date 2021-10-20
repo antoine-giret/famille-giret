@@ -1,11 +1,12 @@
-import { AspectImage, Box, Heading, Link, Paragraph, Text } from '@theme-ui/components';
+import { Box, Heading, Link, Paragraph, Text } from '@theme-ui/components';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 import { AspectRatio } from 'theme-ui';
 
 interface IProps {
   description?: string;
   enableBorderTop?: boolean;
-  logo?: { alt?: string; url?: string };
+  logo?: IGatsbyImageData;
   shrinked?: boolean;
   subHeader?: React.ReactNode;
   subTitle: string;
@@ -44,9 +45,7 @@ function ResumeListItem({
           }}
         >
           {!shrinked && (
-            <AspectRatio ratio={1} sx={{ bg: 'whitesmoke' }}>
-              {logo?.url && <AspectImage alt={logo.alt} ratio={1} src={logo.url} />}
-            </AspectRatio>
+            <AspectRatio ratio={1}>{logo && <GatsbyImage alt={title} image={logo} />}</AspectRatio>
           )}
         </Box>
         <Box

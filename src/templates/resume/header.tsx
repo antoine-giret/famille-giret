@@ -1,4 +1,5 @@
-import { Avatar, Heading, Paragraph } from '@theme-ui/components';
+import { Box, Heading, Paragraph } from '@theme-ui/components';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import { PrismicResumeDataType } from '../../../graphql-types';
@@ -16,7 +17,9 @@ function Header({
 }: IProps): JSX.Element {
   return (
     <>
-      <Avatar alt={thumbnail.alt} src={thumbnail.url} sx={{ height: 96, width: 96 }} />
+      <Box sx={{ borderRadius: '50%', height: 96, overflow: 'hidden', width: 96 }}>
+        <GatsbyImage alt={name} image={thumbnail.gatsbyImageData} />
+      </Box>
       <Heading as="h2" color="primary" sx={{ fontSize: '2em', fontWeight: 200, marginTop: 24 }}>
         {name}
       </Heading>

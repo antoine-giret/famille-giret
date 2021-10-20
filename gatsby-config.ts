@@ -8,6 +8,8 @@ export = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-prismic',
       options: {

@@ -35,8 +35,7 @@ export const query = graphql`
           uid
           data {
             thumbnail {
-              alt
-              url
+              gatsbyImageData(width: 96, placeholder: BLURRED)
             }
             name {
               text
@@ -46,8 +45,7 @@ export const query = graphql`
             }
             experiences {
               company_logo {
-                alt
-                url
+                gatsbyImageData(width: 80, placeholder: BLURRED)
               }
               company_name {
                 text
@@ -70,8 +68,7 @@ export const query = graphql`
             }
             training {
               school_logo {
-                alt
-                url
+                gatsbyImageData(width: 80, placeholder: BLURRED)
               }
               school_name {
                 text
