@@ -2,6 +2,8 @@ import { Box, Heading, MenuButton } from '@theme-ui/components';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import { headerTitleStyle } from '../../theme';
+
 interface IProps {
   title: string;
 }
@@ -26,7 +28,7 @@ function Header({ title }: IProps): JSX.Element {
         }}
       >
         <MenuButton onClick={handleMenuToggle} title="Menu" sx={{ marginRight: 16 }} />
-        <Heading as="h1" color="text" sx={{ fontSize: '1.5em', fontWeight: 200 }}>
+        <Heading as="h1" color="text" sx={headerTitleStyle}>
           Famille Giret
         </Heading>
       </Box>

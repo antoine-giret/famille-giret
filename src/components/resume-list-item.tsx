@@ -3,6 +3,13 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 import { AspectRatio } from 'theme-ui';
 
+import {
+  listItemSubheaderStyle,
+  listItemSubtitleStyle,
+  listItemTextStyle,
+  listItemTitleStyle,
+} from '../theme';
+
 interface IProps {
   description?: string;
   enableBorderTop?: boolean;
@@ -55,7 +62,7 @@ function ResumeListItem({
           }}
         >
           {!shrinked && (
-            <Heading as="h5" color="primary" sx={{ fontSize: '1.1em', fontWeight: 200 }}>
+            <Heading as="h5" color="primary" sx={listItemTitleStyle}>
               {websiteUrl ? (
                 <Link href={websiteUrl} rel="noreferrer" target="_blank">
                   {title}
@@ -68,22 +75,21 @@ function ResumeListItem({
           <Heading
             as="h6"
             sx={{
-              fontSize: '1em',
-              fontWeight: 200,
+              ...listItemSubtitleStyle,
               marginTop: shrinked ? 0 : '8px',
             }}
           >
             {subTitle}
           </Heading>
           {subHeader && (
-            <Paragraph color="textSecondary" sx={{ fontSize: '1em', fontWeight: 200 }}>
+            <Paragraph color="textSecondary" sx={listItemSubheaderStyle}>
               <Text>{subHeader}</Text>
             </Paragraph>
           )}
           <Box
             color="textSecondary"
             dangerouslySetInnerHTML={{ __html: description }}
-            sx={{ fontSize: '0.9em', fontWeight: 200 }}
+            sx={listItemTextStyle}
           />
         </Box>
       </Box>

@@ -13,6 +13,8 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
+    "@fontsource/roboto": "4.5.1",
+    "@fontsource/roboto-condensed": "4.5.0",
     "@theme-ui/preset-roboto": "0.11.3",
     "gatsby": "3.14.2",
     "gatsby-plugin-graphql-codegen": "3.0.0",
