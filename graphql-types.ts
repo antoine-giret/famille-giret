@@ -326,6 +326,11 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
   failOnError?: Maybe<Scalars['Boolean']>;
+  path?: Maybe<Scalars['String']>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
   repositoryName?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   schemas?: Maybe<SitePluginPluginOptionsSchemas>;
@@ -334,11 +339,6 @@ export type SitePluginPluginOptions = {
   imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>;
   apiEndpoint?: Maybe<Scalars['String']>;
   pageSize?: Maybe<Scalars['Int']>;
-  path?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsSchemas = {
@@ -356,6 +356,8 @@ export type SitePluginPluginOptionsSchemasResumeMain = {
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResume>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiences>;
   training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTraining>;
+  technical_skills?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_Skills>;
+  other_skills?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_Skills>;
 };
 
 export type SitePluginPluginOptionsSchemasResumeMainUid = {
@@ -605,6 +607,66 @@ export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAddition
   multi?: Maybe<Scalars['String']>;
   allowTargetBlank?: Maybe<Scalars['Boolean']>;
   label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_Skills = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfig = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFields>;
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFields = {
+  logo?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogo>;
+  title?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitle>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogo = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogoConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogoConfig = {
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitle = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitleConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitleConfig = {
+  single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_Skills = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfig = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFields>;
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFields = {
+  title?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitle>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitle = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitleConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitleConfig = {
+  single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsImageImgixParams = {
@@ -1622,6 +1684,70 @@ export type PrismicResumeDataExperiencesStart_DateArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
+export type PrismicResumeDataOtherSkills = {
+  title?: Maybe<PrismicStructuredTextType>;
+};
+
+export type PrismicResumeDataTechnicalSkillsLogoImageType = {
+  alt?: Maybe<Scalars['String']>;
+  copyright?: Maybe<Scalars['String']>;
+  dimensions?: Maybe<PrismicImageDimensionsType>;
+  /** A plain imgix URL with the URL and params applied. */
+  url?: Maybe<Scalars['String']>;
+  /** Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are "fixed"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information. */
+  fixed?: Maybe<ImgixFixed>;
+  /** Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information. */
+  fluid?: Maybe<ImgixFluid>;
+  gatsbyImageData?: Maybe<Scalars['JSON']>;
+  localFile?: Maybe<File>;
+};
+
+
+export type PrismicResumeDataTechnicalSkillsLogoImageTypeUrlArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicResumeDataTechnicalSkillsLogoImageTypeFixedArgs = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  quality?: Maybe<Scalars['Int']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicResumeDataTechnicalSkillsLogoImageTypeFluidArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicResumeDataTechnicalSkillsLogoImageTypeGatsbyImageDataArgs = {
+  layout?: Maybe<GatsbyImageLayout>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  aspectRatio?: Maybe<Scalars['Float']>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  breakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  sizes?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+  placeholder?: Maybe<ImgixPlaceholder>;
+  widthTolerance?: Maybe<Scalars['Float']>;
+  srcSetMinWidth?: Maybe<Scalars['Int']>;
+  srcSetMaxWidth?: Maybe<Scalars['Int']>;
+};
+
+export type PrismicResumeDataTechnicalSkills = {
+  logo?: Maybe<PrismicResumeDataTechnicalSkillsLogoImageType>;
+  title?: Maybe<PrismicStructuredTextType>;
+};
+
 export type PrismicResumeDataThumbnailImageType = {
   alt?: Maybe<Scalars['String']>;
   copyright?: Maybe<Scalars['String']>;
@@ -1761,7 +1887,9 @@ export type PrismicResumeDataTrainingStart_DateArgs = {
 export type PrismicResumeDataType = {
   experiences?: Maybe<Array<Maybe<PrismicResumeDataExperiences>>>;
   name?: Maybe<PrismicStructuredTextType>;
+  other_skills?: Maybe<Array<Maybe<PrismicResumeDataOtherSkills>>>;
   resume?: Maybe<PrismicStructuredTextType>;
+  technical_skills?: Maybe<Array<Maybe<PrismicResumeDataTechnicalSkills>>>;
   thumbnail?: Maybe<PrismicResumeDataThumbnailImageType>;
   training?: Maybe<Array<Maybe<PrismicResumeDataTraining>>>;
 };
@@ -3362,6 +3490,11 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
   repositoryName?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>;
@@ -3370,11 +3503,6 @@ export type SitePluginPluginOptionsFilterInput = {
   imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>;
   apiEndpoint?: Maybe<StringQueryOperatorInput>;
   pageSize?: Maybe<IntQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
-  allExtensions?: Maybe<BooleanQueryOperatorInput>;
-  isTSX?: Maybe<BooleanQueryOperatorInput>;
-  jsxPragma?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsSchemasFilterInput = {
@@ -3392,6 +3520,8 @@ export type SitePluginPluginOptionsSchemasResumeMainFilterInput = {
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResumeFilterInput>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiencesFilterInput>;
   training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingFilterInput>;
+  technical_skills?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsFilterInput>;
+  other_skills?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsFilterInput>;
 };
 
 export type SitePluginPluginOptionsSchemasResumeMainUidFilterInput = {
@@ -3643,6 +3773,66 @@ export type SitePluginPluginOptionsSchemasResumeMainTrainingConfigFieldsAddition
   label?: Maybe<StringQueryOperatorInput>;
 };
 
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFilterInput = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsFilterInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsFilterInput = {
+  logo?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogoFilterInput>;
+  title?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitleFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogoFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogoConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsLogoConfigFilterInput = {
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitleFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitleConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsConfigFieldsTitleConfigFilterInput = {
+  single?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFilterInput = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsFilterInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsFilterInput = {
+  title?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitleFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitleFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitleConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitleConfigFilterInput = {
+  single?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SitePluginPluginOptionsImageImgixParamsFilterInput = {
   auto?: Maybe<StringQueryOperatorInput>;
   fit?: Maybe<StringQueryOperatorInput>;
@@ -3845,6 +4035,11 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___repositoryName'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___lang'
@@ -3856,11 +4051,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginCreator___pluginOptions___apiEndpoint'
   | 'pluginCreator___pluginOptions___pageSize'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___packageJson___name'
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
@@ -4036,6 +4226,11 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
+  | 'pluginOptions___path'
+  | 'pluginOptions___pathCheck'
+  | 'pluginOptions___allExtensions'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
   | 'pluginOptions___repositoryName'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___lang'
@@ -4047,11 +4242,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginOptions___apiEndpoint'
   | 'pluginOptions___pageSize'
-  | 'pluginOptions___path'
-  | 'pluginOptions___pathCheck'
-  | 'pluginOptions___allExtensions'
-  | 'pluginOptions___isTSX'
-  | 'pluginOptions___jsxPragma'
   | 'packageJson___name'
   | 'packageJson___description'
   | 'packageJson___version'
@@ -5169,7 +5359,9 @@ export type PrismicTypePathTypeSortInput = {
 export type PrismicResumeDataTypeFilterInput = {
   experiences?: Maybe<PrismicResumeDataExperiencesFilterListInput>;
   name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  other_skills?: Maybe<PrismicResumeDataOtherSkillsFilterListInput>;
   resume?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  technical_skills?: Maybe<PrismicResumeDataTechnicalSkillsFilterListInput>;
   thumbnail?: Maybe<PrismicResumeDataThumbnailImageTypeFilterInput>;
   training?: Maybe<PrismicResumeDataTrainingFilterListInput>;
 };
@@ -5261,6 +5453,34 @@ export type IdQueryOperatorInput = {
   ne?: Maybe<Scalars['ID']>;
   in?: Maybe<Array<Maybe<Scalars['ID']>>>;
   nin?: Maybe<Array<Maybe<Scalars['ID']>>>;
+};
+
+export type PrismicResumeDataOtherSkillsFilterListInput = {
+  elemMatch?: Maybe<PrismicResumeDataOtherSkillsFilterInput>;
+};
+
+export type PrismicResumeDataOtherSkillsFilterInput = {
+  title?: Maybe<PrismicStructuredTextTypeFilterInput>;
+};
+
+export type PrismicResumeDataTechnicalSkillsFilterListInput = {
+  elemMatch?: Maybe<PrismicResumeDataTechnicalSkillsFilterInput>;
+};
+
+export type PrismicResumeDataTechnicalSkillsFilterInput = {
+  logo?: Maybe<PrismicResumeDataTechnicalSkillsLogoImageTypeFilterInput>;
+  title?: Maybe<PrismicStructuredTextTypeFilterInput>;
+};
+
+export type PrismicResumeDataTechnicalSkillsLogoImageTypeFilterInput = {
+  alt?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  fixed?: Maybe<ImgixFixedFilterInput>;
+  fluid?: Maybe<ImgixFluidFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
+  localFile?: Maybe<FileFilterInput>;
 };
 
 export type PrismicResumeDataThumbnailImageTypeFilterInput = {
@@ -5393,9 +5613,21 @@ export type PrismicResumeFieldsEnum =
   | 'data___name___text'
   | 'data___name___html'
   | 'data___name___raw'
+  | 'data___other_skills'
+  | 'data___other_skills___title___text'
+  | 'data___other_skills___title___html'
+  | 'data___other_skills___title___raw'
   | 'data___resume___text'
   | 'data___resume___html'
   | 'data___resume___raw'
+  | 'data___technical_skills'
+  | 'data___technical_skills___logo___alt'
+  | 'data___technical_skills___logo___copyright'
+  | 'data___technical_skills___logo___url'
+  | 'data___technical_skills___logo___gatsbyImageData'
+  | 'data___technical_skills___title___text'
+  | 'data___technical_skills___title___html'
+  | 'data___technical_skills___title___raw'
   | 'data___thumbnail___alt'
   | 'data___thumbnail___copyright'
   | 'data___thumbnail___dimensions___width'
@@ -5661,5 +5893,5 @@ export type PageQuery = { allPrismicResume: { edges: Array<{ node: (
           )>>>, training?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataTraining, 'start_date' | 'end_date'>
             & { school_logo?: Maybe<Pick<PrismicResumeDataTrainingSchoolLogoImageType, 'gatsbyImageData'>>, school_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, school_website?: Maybe<Pick<PrismicLinkType, 'url'>>, degree?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, additional_data?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
-          )>>> }> }
+          )>>>, technical_skills?: Maybe<Array<Maybe<{ logo?: Maybe<Pick<PrismicResumeDataTechnicalSkillsLogoImageType, 'gatsbyImageData'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }>>>, other_skills?: Maybe<Array<Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }>>> }> }
       ) }> } };

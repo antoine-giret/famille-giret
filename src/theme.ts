@@ -27,6 +27,10 @@ export const sectionTitleStyle: ThemeUIStyleObject = {
   textAlign: 'center',
 };
 
+export const listSubheaderStyle: ThemeUIStyleObject = {
+  fontSize: '1em',
+};
+
 export const listItemTitleStyle: ThemeUIStyleObject = {
   ...titleStyle,
   fontSize: '1.2em',

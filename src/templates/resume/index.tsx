@@ -7,6 +7,7 @@ import Layout from '../../layouts/default';
 
 import ExperiencesList from './experiences/list';
 import Header from './header';
+import SkillsList from './skills/list';
 import TrainingList from './training/list';
 
 export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Element {
@@ -22,6 +23,7 @@ export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Elemen
         <Header data={data} />
         <ExperiencesList data={data} />
         <TrainingList data={data} />
+        <SkillsList data={data} />
       </Box>
     </Layout>
   );
@@ -83,6 +85,19 @@ export const query = graphql`
               end_date
               additional_data {
                 html
+              }
+            }
+            technical_skills {
+              logo {
+                gatsbyImageData(height: 40, placeholder: BLURRED)
+              }
+              title {
+                text
+              }
+            }
+            other_skills {
+              title {
+                text
               }
             }
           }

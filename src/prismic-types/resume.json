@@ -1,172 +1,212 @@
 {
-  "main" : {
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "uid",
-        "placeholder" : "antoine"
+  "main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid",
+        "placeholder": "antoine"
       }
     },
-    "thumbnail" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : { },
-        "thumbnails" : [ ],
-        "label" : "Thumbnail"
+    "thumbnail": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Thumbnail"
       }
     },
-    "name" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading2",
-        "label" : "Name",
-        "placeholder" : "Antoine Giret"
+    "name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Name",
+        "placeholder": "Antoine Giret"
       }
     },
-    "resume" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, strong, em, hyperlink",
-        "allowTargetBlank" : true,
-        "label" : "Resume",
-        "placeholder" : "Spécialisé depuis plusieurs années dans le développement Typescript..."
+    "resume": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em, hyperlink",
+        "allowTargetBlank": true,
+        "label": "Resume",
+        "placeholder": "Spécialisé depuis plusieurs années dans le développement Typescript..."
       }
     },
-    "experiences" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "company_logo" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : { },
-              "thumbnails" : [ ],
-              "label" : "Company logo"
+    "experiences": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "company_logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Company logo"
             }
           },
-          "title" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "heading3",
-              "label" : "Title",
-              "placeholder" : "Full Stack Developer"
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "Title",
+              "placeholder": "Full Stack Developer"
             }
           },
-          "company_name" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "heading6",
-              "label" : "Company name",
-              "placeholder" : "Geovelo"
+          "company_name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading6",
+              "label": "Company name",
+              "placeholder": "Geovelo"
             }
           },
-          "company_website" : {
-            "type" : "Link",
-            "config" : {
-              "allowTargetBlank" : true,
-              "label" : "Company website",
-              "placeholder" : "https://www.geovelo.fr/application/"
+          "company_website": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "Company website",
+              "placeholder": "https://www.geovelo.fr/application/"
             }
           },
-          "location" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "paragraph",
-              "label" : "Location",
-              "placeholder" : "Tours, France"
+          "location": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Location",
+              "placeholder": "Tours, France"
             }
           },
-          "start_date" : {
-            "type" : "Date",
-            "config" : {
-              "label" : "Start date",
-              "placeholder" : "12-09-2020"
+          "start_date": {
+            "type": "Date",
+            "config": {
+              "label": "Start date",
+              "placeholder": "12-09-2020"
             }
           },
-          "current" : {
-            "type" : "Boolean",
-            "config" : {
-              "default_value" : false,
-              "label" : "Current"
+          "current": {
+            "type": "Boolean",
+            "config": {
+              "default_value": false,
+              "label": "Current"
             }
           },
-          "end_date" : {
-            "type" : "Date",
-            "config" : {
-              "label" : "End date"
+          "end_date": {
+            "type": "Date",
+            "config": {
+              "label": "End date"
             }
           },
-          "description" : {
-            "type" : "StructuredText",
-            "config" : {
-              "multi" : "paragraph, strong, em, hyperlink, list-item, o-list-item",
-              "allowTargetBlank" : true,
-              "label" : "Description",
-              "placeholder" : "- Migration of Angular apps to React"
+          "description": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "Description",
+              "placeholder": "- Migration of Angular apps to React"
             }
           }
         },
-        "label" : "experiences"
+        "label": "Experiences"
       }
     },
-    "training" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "school_logo" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : { },
-              "thumbnails" : [ ],
-              "label" : "Training logo"
+    "training": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "school_logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "School logo"
             }
           },
-          "school_name" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "heading3",
-              "label" : "School name",
-              "placeholder" : "Polytech Tours"
+          "school_name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading3",
+              "label": "School name",
+              "placeholder": "Polytech Tours"
             }
           },
-          "school_website" : {
-            "type" : "Link",
-            "config" : {
-              "allowTargetBlank" : true,
-              "label" : "School website",
-              "placeholder" : "https://polytech.univ-tours.fr/"
+          "school_website": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "School website",
+              "placeholder": "https://polytech.univ-tours.fr/"
             }
           },
-          "degree" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "heading6",
-              "label" : "Degree",
-              "placeholder" : "Diplôme d'ingénieur"
+          "degree": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading6",
+              "label": "Degree",
+              "placeholder": "Diplôme d'ingénieur"
             }
           },
-          "start_date" : {
-            "type" : "Date",
-            "config" : {
-              "label" : "start_date"
+          "start_date": {
+            "type": "Date",
+            "config": {
+              "label": "start_date"
             }
           },
-          "end_date" : {
-            "type" : "Date",
-            "config" : {
-              "label" : "end_date"
+          "end_date": {
+            "type": "Date",
+            "config": {
+              "label": "end_date"
             }
           },
-          "additional_data" : {
-            "type" : "StructuredText",
-            "config" : {
-              "multi" : "paragraph, strong, em, hyperlink, list-item, o-list-item",
-              "allowTargetBlank" : true,
-              "label" : "Additional data"
+          "additional_data": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "Additional data"
             }
           }
         },
-        "label" : "training"
+        "label": "Training"
+      }
+    },
+    "technical_skills": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Logo"
+            }
+          },
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading6",
+              "label": "Title",
+              "placeholder": "TypeScript"
+            }
+          }
+        },
+        "label": "Technical skills"
+      }
+    },
+    "other_skills": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading6",
+              "label": "Title",
+              "placeholder": "Agile software development"
+            }
+          }
+        },
+        "label": "Other skills"
       }
     }
   }
