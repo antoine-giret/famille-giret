@@ -12,18 +12,22 @@ function Header({ title }: IProps): JSX.Element {
   const [scrollTop, setScrollTop] = useState(getScrollTop());
 
   useEffect(() => {
-    function handleScroll() {
-      setScrollTop(getScrollTop());
+    if (typeof window !== 'undefined') {
+      function handleScroll() {
+        setScrollTop(getScrollTop());
+      }
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
     }
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, []);
 
   function getScrollTop() {
+    if (typeof window === 'undefined') return 0;
+
     return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
   }
 
