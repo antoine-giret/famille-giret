@@ -47,12 +47,14 @@ function ResumeListItem({
         <Box
           sx={{
             flexShrink: 0,
-            height: [shrinked ? 0 : 50, 80, 80],
-            width: [shrinked ? 0 : 50, 80, 80],
+            height: [shrinked ? 0 : 60, 80, 80],
+            width: [shrinked ? 0 : 60, 80, 80],
           }}
         >
           {!shrinked && (
-            <AspectRatio ratio={1}>{logo && <GatsbyImage alt={title} image={logo} />}</AspectRatio>
+            <AspectRatio ratio={1}>
+              {logo && <GatsbyImage alt={title} image={logo} imgStyle={{ borderRadius: 4 }} />}
+            </AspectRatio>
           )}
         </Box>
         <Box

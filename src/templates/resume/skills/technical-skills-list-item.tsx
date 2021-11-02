@@ -29,8 +29,8 @@ function TechnicalSkillsListItem({
           display: 'flex',
           flexShrink: 0,
           justifyContent: 'center',
-          height: 40,
-          width: 80,
+          height: 30,
+          width: 64,
         }}
       >
         <GatsbyImage alt={title} image={logo} />

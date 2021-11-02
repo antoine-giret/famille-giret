@@ -89,7 +89,7 @@ export const query = graphql`
             }
             technical_skills {
               logo {
-                gatsbyImageData(height: 40, placeholder: BLURRED)
+                gatsbyImageData(height: 30, placeholder: BLURRED)
               }
               title {
                 text
