@@ -34,7 +34,7 @@ function ResumeListItem({
   return (
     <>
       {enableBorderTop && !shrinked && (
-        <Box sx={{ borderTop: '1px solid whitesmoke', marginTop: 16, width: '100%' }} />
+        <Box sx={{ borderTop: '1px solid #ddd', marginTop: 16, width: '100%' }} />
       )}
       <Box
         sx={{

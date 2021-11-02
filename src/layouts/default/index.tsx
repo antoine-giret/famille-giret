@@ -12,7 +12,7 @@ function Layout({ title, children }: IProps): JSX.Element {
   return (
     <>
       <Header title={title} />
-      <Box as="main" p={4}>
+      <Box as="main" sx={{ backgroundColor: 'whitesmoke', padding: '96px 32px 32px' }}>
         {children}
       </Box>
     </>

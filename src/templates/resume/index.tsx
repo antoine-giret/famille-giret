@@ -47,7 +47,7 @@ export const query = graphql`
             }
             experiences {
               company_logo {
-                gatsbyImageData(width: 80, placeholder: BLURRED)
+                gatsbyImageData(width: 80, backgroundColor: "transparent", placeholder: BLURRED)
               }
               company_name {
                 text
@@ -70,7 +70,7 @@ export const query = graphql`
             }
             training {
               school_logo {
-                gatsbyImageData(width: 80, placeholder: BLURRED)
+                gatsbyImageData(width: 80, backgroundColor: "transparent", placeholder: BLURRED)
               }
               school_name {
                 text
@@ -89,7 +89,7 @@ export const query = graphql`
             }
             technical_skills {
               logo {
-                gatsbyImageData(height: 30, placeholder: BLURRED)
+                gatsbyImageData(height: 30, backgroundColor: "transparent", placeholder: BLURRED)
               }
               title {
                 text
