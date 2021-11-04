@@ -14,11 +14,11 @@ export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Elemen
   if (!_data) return null;
   const data = _data.allPrismicResume.edges[0].node.data;
   const {
-    name: { text: name },
+    full_name: { text: fullName },
   } = data;
 
   return (
-    <Layout title={`CV ${name}`}>
+    <Layout title={`CV ${fullName}`}>
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Header data={data} />
         <ExperiencesList data={data} />
@@ -39,7 +39,7 @@ export const query = graphql`
             thumbnail {
               gatsbyImageData(width: 96, placeholder: BLURRED)
             }
-            name {
+            full_name {
               text
             }
             resume {

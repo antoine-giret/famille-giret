@@ -5,10 +5,11 @@ import { Helmet } from 'react-helmet';
 import { headerTitleStyle } from '../../theme';
 
 interface IProps {
+  openDrawer: (open: boolean) => void;
   title: string;
 }
 
-function Header({ title }: IProps): JSX.Element {
+function Header({ title, openDrawer }: IProps): JSX.Element {
   const [scrollTop, setScrollTop] = useState(getScrollTop());
 
   useEffect(() => {
@@ -31,10 +32,6 @@ function Header({ title }: IProps): JSX.Element {
     return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
   }
 
-  function handleMenuToggle() {
-    //
-  }
-
   return (
     <>
       <Helmet>
@@ -52,11 +49,11 @@ function Header({ title }: IProps): JSX.Element {
           position: 'fixed',
           right: 0,
           top: 0,
-          transition: 'all 0.5s ease;',
+          transition: 'all 0.5s ease',
           zIndex: 2,
         }}
       >
-        <MenuButton onClick={handleMenuToggle} title="Menu" sx={{ marginRight: 16 }} />
+        <MenuButton onClick={() => openDrawer(true)} title="Menu" sx={{ marginRight: 16 }} />
         <Heading as="h1" color="text" sx={headerTitleStyle}>
           Famille Giret
         </Heading>

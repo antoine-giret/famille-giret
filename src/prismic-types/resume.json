@@ -15,12 +15,20 @@
         "label": "Thumbnail"
       }
     },
-    "name": {
+    "full_name": {
       "type": "StructuredText",
       "config": {
         "single": "heading2",
-        "label": "Name",
+        "label": "Full Name",
         "placeholder": "Antoine Giret"
+      }
+    },
+    "first_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading6",
+        "label": "First Name",
+        "placeholder": "Antoine"
       }
     },
     "resume": {

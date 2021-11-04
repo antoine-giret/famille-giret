@@ -352,7 +352,8 @@ export type SitePluginPluginOptionsSchemasResume = {
 export type SitePluginPluginOptionsSchemasResumeMain = {
   uid?: Maybe<SitePluginPluginOptionsSchemasResumeMainUid>;
   thumbnail?: Maybe<SitePluginPluginOptionsSchemasResumeMainThumbnail>;
-  name?: Maybe<SitePluginPluginOptionsSchemasResumeMainName>;
+  full_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_Name>;
+  first_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_Name>;
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResume>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiences>;
   training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTraining>;
@@ -379,12 +380,23 @@ export type SitePluginPluginOptionsSchemasResumeMainThumbnailConfig = {
   label?: Maybe<Scalars['String']>;
 };
 
-export type SitePluginPluginOptionsSchemasResumeMainName = {
+export type SitePluginPluginOptionsSchemasResumeMainFull_Name = {
   type?: Maybe<Scalars['String']>;
-  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainNameConfig>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_NameConfig>;
 };
 
-export type SitePluginPluginOptionsSchemasResumeMainNameConfig = {
+export type SitePluginPluginOptionsSchemasResumeMainFull_NameConfig = {
+  single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainFirst_Name = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_NameConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainFirst_NameConfig = {
   single?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   placeholder?: Maybe<Scalars['String']>;
@@ -1886,7 +1898,8 @@ export type PrismicResumeDataTrainingStart_DateArgs = {
 
 export type PrismicResumeDataType = {
   experiences?: Maybe<Array<Maybe<PrismicResumeDataExperiences>>>;
-  name?: Maybe<PrismicStructuredTextType>;
+  first_name?: Maybe<PrismicStructuredTextType>;
+  full_name?: Maybe<PrismicStructuredTextType>;
   other_skills?: Maybe<Array<Maybe<PrismicResumeDataOtherSkills>>>;
   resume?: Maybe<PrismicStructuredTextType>;
   technical_skills?: Maybe<Array<Maybe<PrismicResumeDataTechnicalSkills>>>;
@@ -3516,7 +3529,8 @@ export type SitePluginPluginOptionsSchemasResumeFilterInput = {
 export type SitePluginPluginOptionsSchemasResumeMainFilterInput = {
   uid?: Maybe<SitePluginPluginOptionsSchemasResumeMainUidFilterInput>;
   thumbnail?: Maybe<SitePluginPluginOptionsSchemasResumeMainThumbnailFilterInput>;
-  name?: Maybe<SitePluginPluginOptionsSchemasResumeMainNameFilterInput>;
+  full_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_NameFilterInput>;
+  first_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_NameFilterInput>;
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResumeFilterInput>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiencesFilterInput>;
   training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingFilterInput>;
@@ -3543,12 +3557,23 @@ export type SitePluginPluginOptionsSchemasResumeMainThumbnailConfigFilterInput =
   label?: Maybe<StringQueryOperatorInput>;
 };
 
-export type SitePluginPluginOptionsSchemasResumeMainNameFilterInput = {
+export type SitePluginPluginOptionsSchemasResumeMainFull_NameFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
-  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainNameConfigFilterInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_NameConfigFilterInput>;
 };
 
-export type SitePluginPluginOptionsSchemasResumeMainNameConfigFilterInput = {
+export type SitePluginPluginOptionsSchemasResumeMainFull_NameConfigFilterInput = {
+  single?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainFirst_NameFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_NameConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainFirst_NameConfigFilterInput = {
   single?: Maybe<StringQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
   placeholder?: Maybe<StringQueryOperatorInput>;
@@ -5358,7 +5383,8 @@ export type PrismicTypePathTypeSortInput = {
 
 export type PrismicResumeDataTypeFilterInput = {
   experiences?: Maybe<PrismicResumeDataExperiencesFilterListInput>;
-  name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  first_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  full_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
   other_skills?: Maybe<PrismicResumeDataOtherSkillsFilterListInput>;
   resume?: Maybe<PrismicStructuredTextTypeFilterInput>;
   technical_skills?: Maybe<PrismicResumeDataTechnicalSkillsFilterListInput>;
@@ -5610,9 +5636,12 @@ export type PrismicResumeFieldsEnum =
   | 'data___experiences___title___text'
   | 'data___experiences___title___html'
   | 'data___experiences___title___raw'
-  | 'data___name___text'
-  | 'data___name___html'
-  | 'data___name___raw'
+  | 'data___first_name___text'
+  | 'data___first_name___html'
+  | 'data___first_name___raw'
+  | 'data___full_name___text'
+  | 'data___full_name___html'
+  | 'data___full_name___raw'
   | 'data___other_skills'
   | 'data___other_skills___title___text'
   | 'data___other_skills___title___html'
@@ -5880,6 +5909,14 @@ export type PrismicResumeSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type LayoutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LayoutQuery = { allPrismicResume: { edges: Array<{ node: (
+        Pick<PrismicResume, 'uid'>
+        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }
+      ) }> } };
+
 export type PageQueryVariables = Exact<{
   uid?: Maybe<Scalars['String']>;
 }>;
@@ -5887,7 +5924,7 @@ export type PageQueryVariables = Exact<{
 
 export type PageQuery = { allPrismicResume: { edges: Array<{ node: (
         Pick<PrismicResume, 'uid'>
-        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>>, experiences?: Maybe<Array<Maybe<(
+        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>>, experiences?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataExperiences, 'start_date' | 'current' | 'end_date'>
             & { company_logo?: Maybe<Pick<PrismicResumeDataExperiencesCompanyLogoImageType, 'gatsbyImageData'>>, company_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, company_website?: Maybe<Pick<PrismicLinkType, 'url'>>, location?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, description?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
           )>>>, training?: Maybe<Array<Maybe<(

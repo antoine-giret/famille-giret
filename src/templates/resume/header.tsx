@@ -12,7 +12,7 @@ interface IProps {
 function Header({
   data: {
     thumbnail,
-    name: { text: name },
+    full_name: { text: fullName },
     resume: { html: resume },
   },
 }: IProps): JSX.Element {
@@ -21,10 +21,10 @@ function Header({
       <Box
         sx={{ borderRadius: '50%', height: 96, marginBottom: 24, overflow: 'hidden', width: 96 }}
       >
-        <GatsbyImage alt={name} image={thumbnail.gatsbyImageData} />
+        <GatsbyImage alt={fullName} image={thumbnail.gatsbyImageData} />
       </Box>
       <Heading as="h2" color="primary" sx={pageTitleStyle}>
-        {name}
+        {fullName}
       </Heading>
       <Paragraph
         color="textSecondary"

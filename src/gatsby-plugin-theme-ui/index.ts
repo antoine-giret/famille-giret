@@ -15,8 +15,19 @@ export default {
     secondary: '#ff5722',
   },
   buttons: {
+    icon: {
+      cursor: 'pointer',
+      transition: 'all 0.5s ease',
+      '&:hover': {
+        bg: 'rgba(0, 0, 0, 0.1)',
+      },
+      '&:active': {
+        bg: 'rgba(0, 0, 0, 0.2)',
+      },
+    },
     menu: {
       cursor: 'pointer',
+      transition: 'all 0.5s ease',
       '&:hover': {
         bg: 'rgba(0, 0, 0, 0.1)',
       },
