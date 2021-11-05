@@ -4,7 +4,6 @@ export = {
   siteMetadata: {
     title: 'Famille Giret',
   },
-  pathPrefix: '/famille-giret',
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-theme-ui',
