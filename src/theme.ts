@@ -1,4 +1,5 @@
 import { ThemeUIStyleObject } from '@theme-ui/css';
+import { CSSProperties } from 'react';
 
 const titleStyle: ThemeUIStyleObject = {
   fontFamily: 'Roboto Condensed',
@@ -47,4 +48,9 @@ export const listItemSubheaderStyle: ThemeUIStyleObject = {
 
 export const listItemTextStyle: ThemeUIStyleObject = {
   fontSize: '0.9em',
+};
+
+export const linkStyle: CSSProperties = {
+  color: 'inherit',
+  textDecoration: 'none',
 };

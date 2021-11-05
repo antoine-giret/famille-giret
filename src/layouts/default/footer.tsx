@@ -6,7 +6,13 @@ function Footer(): JSX.Element {
   return (
     <Box
       as="footer"
-      sx={{ display: 'flex', backgroundColor: '#fff', justifyContent: 'center', padding: '16px' }}
+      sx={{
+        display: 'flex',
+        backgroundColor: '#fff',
+        flexShrink: 0,
+        justifyContent: 'center',
+        padding: '16px',
+      }}
     >
       <Text color="text" sx={{ fontSize: '0.9em' }}>
         © {DateTime.now().toFormat('yyyy')} Antoine Giret

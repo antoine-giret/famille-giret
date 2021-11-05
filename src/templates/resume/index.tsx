@@ -18,7 +18,7 @@ export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Elemen
   } = data;
 
   return (
-    <Layout title={`CV ${fullName}`}>
+    <Layout title={`CV ${fullName} | Famille Giret`}>
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Header data={data} />
         <ExperiencesList data={data} />

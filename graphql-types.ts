@@ -5917,6 +5917,14 @@ export type LayoutQuery = { allPrismicResume: { edges: Array<{ node: (
         & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }
       ) }> } };
 
+export type IndexQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IndexQuery = { allPrismicResume: { edges: Array<{ node: (
+        Pick<PrismicResume, 'uid'>
+        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }> }
+      ) }> } };
+
 export type PageQueryVariables = Exact<{
   uid?: Maybe<Scalars['String']>;
 }>;

@@ -1,8 +1,9 @@
 import { Box, Heading, MenuButton } from '@theme-ui/components';
+import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { headerTitleStyle } from '../../theme';
+import { headerTitleStyle, linkStyle } from '../../theme';
 
 interface IProps {
   openDrawer: (open: boolean) => void;
@@ -10,27 +11,29 @@ interface IProps {
 }
 
 function Header({ title, openDrawer }: IProps): JSX.Element {
-  const [scrollTop, setScrollTop] = useState(getScrollTop());
+  const [scrollTop, setScrollTop] = useState<number>();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      function handleScroll() {
-        setScrollTop(getScrollTop());
-      }
+    function getScrollTop() {
+      if (typeof window === 'undefined') return 0;
 
-      window.addEventListener('scroll', handleScroll);
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+      return (
+        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+      );
     }
+
+    function handleScroll() {
+      setScrollTop(getScrollTop());
+    }
+
+    setScrollTop(getScrollTop());
+
+    if (typeof window !== 'undefined') window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      if (typeof window !== 'undefined') window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
-
-  function getScrollTop() {
-    if (typeof window === 'undefined') return 0;
-
-    return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  }
 
   return (
     <>
@@ -43,6 +46,7 @@ function Header({ title, openDrawer }: IProps): JSX.Element {
           alignItems: 'center',
           backgroundColor: scrollTop === 0 ? 'transparent' : '#fff',
           display: 'flex',
+          flexShrink: 0,
           height: 64,
           left: 0,
           padding: '0 16px',
@@ -55,7 +59,9 @@ function Header({ title, openDrawer }: IProps): JSX.Element {
       >
         <MenuButton onClick={() => openDrawer(true)} title="Menu" sx={{ marginRight: 16 }} />
         <Heading as="h1" color="text" sx={headerTitleStyle}>
-          Famille Giret
+          <Link style={linkStyle} to="/">
+            Famille Giret
+          </Link>
         </Heading>
       </Box>
     </>
