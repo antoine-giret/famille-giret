@@ -78,10 +78,10 @@ function Index(): JSX.Element {
                   <Heading as="h3" sx={headerTitleStyle}>
                     {firstName}
                   </Heading>
-                  <Paragraph
+                  <Box
                     color="textSecondary"
                     dangerouslySetInnerHTML={{ __html: resume }}
-                    sx={pageDescriptionStyle}
+                    sx={{ ...pageDescriptionStyle, marginTop: 16 }}
                   />
                   <Link
                     className="secondary-button"
@@ -90,6 +90,7 @@ function Index(): JSX.Element {
                       borderRadius: 4,
                       color: '#ff5722',
                       display: 'inline-block',
+                      marginTop: 16,
                       padding: '4px 8px',
                       textDecoration: 'none',
                     }}

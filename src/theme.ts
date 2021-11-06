@@ -20,6 +20,12 @@ export const pageDescriptionStyle: ThemeUIStyleObject = {
   maxWidth: '100%',
   textAlign: 'center',
   width: 800,
+  '> p': {
+    margin: 0,
+    '&:not(:first-child)': {
+      marginTop: 16,
+    },
+  },
 };
 
 export const sectionTitleStyle: ThemeUIStyleObject = {

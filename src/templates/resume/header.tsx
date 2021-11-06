@@ -26,10 +26,10 @@ function Header({
       <Heading as="h2" color="primary" sx={pageTitleStyle}>
         {fullName}
       </Heading>
-      <Paragraph
+      <Box
         color="textSecondary"
         dangerouslySetInnerHTML={{ __html: resume }}
-        sx={pageDescriptionStyle}
+        sx={{ ...pageDescriptionStyle, marginTop: 16 }}
       />
     </>
   );
