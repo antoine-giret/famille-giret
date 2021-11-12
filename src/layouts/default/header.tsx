@@ -47,6 +47,7 @@ function Header({ location, title, openDrawer }: IProps): JSX.Element {
     <>
       <Helmet>
         <title>{title}</title>
+        <link rel="icon" href="/images/icon.png" type="image/png" />
       </Helmet>
       <Box
         as="header"
