@@ -1,8 +1,11 @@
+import { HLocation } from '@reach/router';
 import { Box } from '@theme-ui/components';
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { PageQuery } from '../../../graphql-types';
+import { defaultLanguage, prismicLanguagesMap } from '../../languages';
 import Layout from '../../layouts/default';
 
 import ExperiencesList from './experiences/list';
@@ -10,7 +13,21 @@ import Header from './header';
 import SkillsList from './skills/list';
 import TrainingList from './training/list';
 
-export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Element {
+export function ResumeTemplate({
+  location,
+  data: _data,
+  pageContext: { lang },
+}: {
+  data: PageQuery;
+  location: HLocation;
+  pageContext: { lang: string };
+}): JSX.Element {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage(prismicLanguagesMap[lang] || defaultLanguage);
+  }, []);
+
   if (!_data) return null;
   const data = _data.allPrismicResume.edges[0].node.data;
   const {
@@ -18,7 +35,7 @@ export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Elemen
   } = data;
 
   return (
-    <Layout title={`CV ${fullName} | Famille Giret`}>
+    <Layout location={location} title={`CV ${fullName} | Famille Giret`}>
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Header data={data} />
         <ExperiencesList data={data} />
@@ -30,8 +47,8 @@ export function ResumeTemplate({ data: _data }: { data: PageQuery }): JSX.Elemen
 }
 
 export const query = graphql`
-  query Page($uid: String) {
-    allPrismicResume(filter: { uid: { eq: $uid } }) {
+  query Page($uid: String, $lang: String) {
+    allPrismicResume(filter: { uid: { eq: $uid }, lang: { eq: $lang } }) {
       edges {
         node {
           uid

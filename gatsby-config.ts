@@ -1,3 +1,4 @@
+import { defaultLanguage } from './src/languages';
 import linkResolver from './src/link-resolver';
 
 export = {
@@ -33,5 +34,13 @@ export = {
       },
     },
     'gatsby-plugin-graphql-codegen',
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: defaultLanguage,
+        useLangKeyLayout: false,
+        prefixDefault: false,
+      },
+    },
   ],
 };

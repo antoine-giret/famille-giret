@@ -1,5 +1,6 @@
 import { Box, Text } from '@theme-ui/components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { PrismicResumeDataType } from '../../../../graphql-types';
 import Section from '../../../layouts/section';
@@ -12,11 +13,13 @@ interface IProps {
 }
 
 function SkillsList({ data }: IProps): JSX.Element {
+  const { t } = useTranslation();
+
   return (
-    <Section title="Skills">
+    <Section title={t('resume.skills')}>
       <Box sx={{ marginTop: 24 }}>
         <Text color="textSecondary" sx={listSubheaderStyle}>
-          Technical Skills
+          {t('resume.technical_skills')}
         </Text>
         <Box sx={{ marginTop: 24 }}>
           <Box
@@ -37,7 +40,7 @@ function SkillsList({ data }: IProps): JSX.Element {
       {data.other_skills.length > 0 && (
         <Box sx={{ marginTop: 24 }}>
           <Text color="textSecondary" sx={listSubheaderStyle}>
-            Other Skills
+            {t('resume.other_skills')}
           </Text>
           <Box sx={{ marginTop: 24 }}>
             <ul>

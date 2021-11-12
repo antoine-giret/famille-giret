@@ -1,4 +1,4 @@
-import { Box, Heading, Paragraph } from '@theme-ui/components';
+import { Box, Heading } from '@theme-ui/components';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 

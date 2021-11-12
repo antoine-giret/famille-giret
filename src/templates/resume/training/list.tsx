@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { PrismicResumeDataType } from '../../../../graphql-types';
 import Section from '../../../layouts/section';
@@ -10,8 +11,10 @@ interface IProps {
 }
 
 function TrainingList({ data }: IProps): JSX.Element {
+  const { t } = useTranslation();
+
   return (
-    <Section title="Training">
+    <Section title={t('resume.training')}>
       {data.training.map((_, index) => (
         <TrainingListItem data={data} key={index} index={index} />
       ))}

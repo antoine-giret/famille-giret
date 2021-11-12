@@ -1,6 +1,7 @@
 import { Text } from '@theme-ui/components';
 import { DateTime } from 'luxon';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { PrismicResumeDataType } from '../../../../graphql-types';
 import ResumeListItem from '../../../components/resume-list-item';
@@ -11,6 +12,11 @@ interface IProps {
 }
 
 function TrainingListItem({ data: { training }, index }: IProps): JSX.Element {
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
+
   const {
     school_logo: schoolLogo,
     school_name: { text: schoolName },
@@ -28,8 +34,10 @@ function TrainingListItem({ data: { training }, index }: IProps): JSX.Element {
       logo={schoolLogo.gatsbyImageData}
       subHeader={
         <Text>
-          From {DateTime.fromISO(startDate).setLocale('en').toFormat('yyyy')} to{' '}
-          {DateTime.fromISO(endDate).setLocale('en').toFormat('yyyy')}
+          {t('periods.from_to', {
+            startDate: DateTime.fromISO(startDate).setLocale(language).toFormat('yyyy'),
+            endDate: DateTime.fromISO(endDate).setLocale(language).toFormat('yyyy'),
+          })}
         </Text>
       }
       subTitle={degree}

@@ -1,8 +1,13 @@
 import { Box, Text } from '@theme-ui/components';
 import { DateTime } from 'luxon';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Footer(): JSX.Element {
+  const {
+    i18n: { language },
+  } = useTranslation();
+
   return (
     <Box
       as="footer"
@@ -15,7 +20,7 @@ function Footer(): JSX.Element {
       }}
     >
       <Text color="text" sx={{ fontSize: '0.9em' }}>
-        © {DateTime.now().toFormat('yyyy')} Antoine Giret
+        © {DateTime.now().setLocale(language).toFormat('yyyy')} Antoine Giret
       </Text>
     </Box>
   );

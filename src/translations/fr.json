@@ -1,0 +1,23 @@
+{
+  "home": {
+    "actions": {
+      "see_resume": "Voir le CV"
+    },
+    "baseline": "Bienvenue sur le site internet de notre famille"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "resumes": "À propos de nous"
+  },
+  "periods": {
+    "from_to": "De {{startDate}} à {{endDate}}",
+    "since": "Depuis {{date}}"
+  },
+  "resume": {
+    "experiences": "Expériences",
+    "other_skills": "Autres compétences",
+    "skills": "Compétences",
+    "technical_skills": "Compétences techniques",
+    "training": "Formation"
+  }
+}

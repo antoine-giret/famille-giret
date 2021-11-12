@@ -1,6 +1,7 @@
 import { Text } from '@theme-ui/components';
 import { DateTime } from 'luxon';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { PrismicResumeDataType } from '../../../../graphql-types';
 import ResumeListItem from '../../../components/resume-list-item';
@@ -11,6 +12,11 @@ interface IProps {
 }
 
 function ExperiencesListItem({ data: { experiences }, index }: IProps): JSX.Element {
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
+
   const {
     company_logo: companyLogo,
     company_name: { text: company },
@@ -34,11 +40,17 @@ function ExperiencesListItem({ data: { experiences }, index }: IProps): JSX.Elem
         <>
           {location && <Text>{location}&nbsp;&#8729;&nbsp;</Text>}
           {current ? (
-            <Text>Since {DateTime.fromISO(startDate).setLocale('en').toFormat('MMMM yyyy')}</Text>
+            <Text>
+              {t('periods.since', {
+                date: DateTime.fromISO(startDate).setLocale(language).toFormat('MMMM yyyy'),
+              })}
+            </Text>
           ) : (
             <Text>
-              From {DateTime.fromISO(startDate).setLocale('en').toFormat('MMMM yyyy')} to{' '}
-              {DateTime.fromISO(endDate).setLocale('en').toFormat('MMMM yyyy')}
+              {t('periods.from_to', {
+                startDate: DateTime.fromISO(startDate).setLocale(language).toFormat('MMMM yyyy'),
+                endDate: DateTime.fromISO(endDate).setLocale(language).toFormat('MMMM yyyy'),
+              })}
             </Text>
           )}
         </>

@@ -1,0 +1,23 @@
+{
+  "home": {
+    "actions": {
+      "see_resume": "See the resume"
+    },
+    "baseline": "Welcome to our family's website"
+  },
+  "navigation": {
+    "home": "Home",
+    "resumes": "About us"
+  },
+  "periods": {
+    "from_to": "De {{startDate}} à {{endDate}}",
+    "since": "Since {{date}}"
+  },
+  "resume": {
+    "experiences": "Experiences",
+    "other_skills": "Other skills",
+    "skills": "Skills",
+    "technical_skills": "Technical skills",
+    "training": "Training"
+  }
+}
