@@ -22,7 +22,7 @@ export const pageDescriptionStyle: ThemeUIStyleObject = {
   width: 800,
   '> p': {
     margin: 0,
-    '&:not(:first-child)': {
+    '&:not(:first-of-type)': {
       marginTop: 16,
     },
   },
