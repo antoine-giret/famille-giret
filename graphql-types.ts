@@ -341,6 +341,8 @@ export type SitePluginPluginOptions = {
   useLangKeyLayout?: Maybe<Scalars['Boolean']>;
   prefixDefault?: Maybe<Scalars['Boolean']>;
   trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>;
+  host?: Maybe<Scalars['String']>;
+  policy?: Maybe<Array<Maybe<SitePluginPluginOptionsPolicy>>>;
   path?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
@@ -722,6 +724,11 @@ export type SitePluginPluginOptionsImagePlaceholderImgixParams = {
   w?: Maybe<Scalars['Int']>;
   blur?: Maybe<Scalars['Int']>;
   q?: Maybe<Scalars['Int']>;
+};
+
+export type SitePluginPluginOptionsPolicy = {
+  userAgent?: Maybe<Scalars['String']>;
+  allow?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJson = {
@@ -3551,6 +3558,8 @@ export type SitePluginPluginOptionsFilterInput = {
   useLangKeyLayout?: Maybe<BooleanQueryOperatorInput>;
   prefixDefault?: Maybe<BooleanQueryOperatorInput>;
   trackingIds?: Maybe<StringQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
+  policy?: Maybe<SitePluginPluginOptionsPolicyFilterListInput>;
   path?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
@@ -3934,6 +3943,15 @@ export type SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput = {
   q?: Maybe<IntQueryOperatorInput>;
 };
 
+export type SitePluginPluginOptionsPolicyFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPolicyFilterInput>;
+};
+
+export type SitePluginPluginOptionsPolicyFilterInput = {
+  userAgent?: Maybe<StringQueryOperatorInput>;
+  allow?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SitePluginPackageJsonFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
@@ -4142,6 +4160,10 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___useLangKeyLayout'
   | 'pluginCreator___pluginOptions___prefixDefault'
   | 'pluginCreator___pluginOptions___trackingIds'
+  | 'pluginCreator___pluginOptions___host'
+  | 'pluginCreator___pluginOptions___policy'
+  | 'pluginCreator___pluginOptions___policy___userAgent'
+  | 'pluginCreator___pluginOptions___policy___allow'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
@@ -4337,6 +4359,10 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___useLangKeyLayout'
   | 'pluginOptions___prefixDefault'
   | 'pluginOptions___trackingIds'
+  | 'pluginOptions___host'
+  | 'pluginOptions___policy'
+  | 'pluginOptions___policy___userAgent'
+  | 'pluginOptions___policy___allow'
   | 'pluginOptions___path'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
@@ -6102,7 +6128,7 @@ export type PageQueryVariables = Exact<{
 
 export type PageQuery = { allPrismicResume: { edges: Array<{ node: (
         Pick<PrismicResume, 'uid'>
-        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>>, linkedin_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, github_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, experiences?: Maybe<Array<Maybe<(
+        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'text' | 'html'>>, linkedin_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, github_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, experiences?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataExperiences, 'start_date' | 'current' | 'end_date'>
             & { company_logo?: Maybe<Pick<PrismicResumeDataExperiencesCompanyLogoImageType, 'gatsbyImageData'>>, company_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, company_website?: Maybe<Pick<PrismicLinkType, 'url'>>, location?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, description?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
           )>>>, training?: Maybe<Array<Maybe<(

@@ -9,10 +9,10 @@ export default {
   ],
   colors: {
     text: '#212121',
-    textSecondary: '#757575',
+    textSecondary: '#616161',
     background: '#fff',
     primary: '#009688',
-    secondary: '#ff5722',
+    secondary: '#bf360c',
   },
   buttons: {
     icon: {

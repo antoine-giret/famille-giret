@@ -3,6 +3,7 @@ import linkResolver from './src/link-resolver';
 
 export = {
   siteMetadata: {
+    siteUrl: process.env.FRONTEND_HOST,
     title: appTitle,
   },
   plugins: [
@@ -46,6 +47,15 @@ export = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID],
+      },
+    },
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: process.env.FRONTEND_HOST,
+        sitemap: `${process.env.FRONTEND_HOST}/sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
   ],

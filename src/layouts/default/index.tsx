@@ -12,11 +12,12 @@ import Header from './header';
 
 export interface IProps {
   children: JSX.Element;
+  description?: string;
   location: HLocation;
   title: string;
 }
 
-export function Layout({ location, title, children }: IProps): JSX.Element {
+export function Layout({ location, title, description, children }: IProps): JSX.Element {
   const data = useStaticQuery<LayoutQuery>(graphql`
     query Layout {
       allPrismicResume {
@@ -41,7 +42,7 @@ export function Layout({ location, title, children }: IProps): JSX.Element {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Header location={location} openDrawer={openDrawer} title={title} />
+      <Header description={description} location={location} openDrawer={openDrawer} title={title} />
       <Box
         as="main"
         sx={{

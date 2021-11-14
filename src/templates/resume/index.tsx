@@ -35,7 +35,11 @@ export function ResumeTemplate({
   } = data;
 
   return (
-    <Layout location={location} title={`CV ${fullName} | ${appTitle}`}>
+    <Layout
+      description={data.resume.text}
+      location={location}
+      title={`CV ${fullName} | ${appTitle}`}
+    >
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Header data={data} />
         <ExperiencesList data={data} />
@@ -60,6 +64,7 @@ export const query = graphql`
               text
             }
             resume {
+              text
               html
             }
             linkedin_profile_url {

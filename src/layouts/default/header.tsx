@@ -10,12 +10,13 @@ import { appTitle, defaultLanguage, languages, languagesMap } from '../../enviro
 import { headerTitleStyle, linkStyle } from '../../theme';
 
 interface IProps {
+  description?: string;
   location: HLocation;
   openDrawer: (open: boolean) => void;
   title: string;
 }
 
-function Header({ location, title, openDrawer }: IProps): JSX.Element {
+function Header({ location, title, description, openDrawer }: IProps): JSX.Element {
   const [scrollTop, setScrollTop] = useState<number>();
   const {
     i18n: { language },
@@ -45,8 +46,9 @@ function Header({ location, title, openDrawer }: IProps): JSX.Element {
 
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: language }}>
         <title>{title}</title>
+        {description && <meta content={description} name="description" />}
         <link rel="icon" href="/images/icon.png" type="image/png" />
       </Helmet>
       <Box

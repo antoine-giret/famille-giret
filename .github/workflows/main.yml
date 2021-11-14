@@ -50,6 +50,7 @@ jobs:
         echo PRISMIC_REPOSITORY_NAME=${{ secrets.PRISMIC_REPOSITORY_NAME }} >> .env
         echo PRISMIC_ACCESS_TOKEN=${{ secrets.PRISMIC_ACCESS_TOKEN }} >> .env
         echo GOOGLE_ANALYTICS_MEASUREMENT_ID=${{ secrets.GOOGLE_ANALYTICS_MEASUREMENT_ID }} >> .env
+        echo FRONTEND_HOST=${{ secrets.FRONTEND_HOST }} >> .env
         cat .env
 
     - name: Run the tests

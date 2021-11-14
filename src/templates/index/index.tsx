@@ -40,7 +40,11 @@ function Index({ location }: { location: HLocation }): JSX.Element {
   } = useTranslation();
 
   return (
-    <Layout location={location} title={appTitle}>
+    <Layout
+      description={`Hello World ! ${t('home.baseline')}`}
+      location={location}
+      title={appTitle}
+    >
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Heading as="h2" color="primary" sx={pageTitleStyle}>
           Hello World !
