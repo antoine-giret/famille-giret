@@ -34,6 +34,17 @@ a.icon-button {
   width: 32px;
 }
 
+a.text-button.icon-button {
+  color: inherit;
+  padding: 0 8px;
+  text-decoration: none;
+  width: auto;
+}
+
+a.text-button.icon-button svg {
+  margin-left: 8px;
+}
+
 a.icon-button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }

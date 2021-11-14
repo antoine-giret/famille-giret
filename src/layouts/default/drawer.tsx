@@ -5,6 +5,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LayoutQuery } from '../../../graphql-types';
+import GithubIcon from '../../components/icons/github';
 import { defaultLanguage, prismicLanguagesMap } from '../../languages';
 import { linkStyle } from '../../theme';
 
@@ -154,6 +155,28 @@ function Drawer({ open, data: { allPrismicResume }, openDrawer }: IProps): JSX.E
                 ),
               )}
           </Box>
+        </Box>
+        <Box
+          sx={{
+            alignItems: 'center',
+            display: 'flex',
+            flexShrink: 0,
+            height: 64,
+            justifyContent: 'center',
+            padding: '0 16px',
+          }}
+        >
+          <a
+            className="text-button icon-button"
+            href="https://github.com/antoine-giret/famille-giret"
+            rel="noreferrer"
+            style={{ fontSize: '0.9em', marginLeft: 8 }}
+            target="_blank"
+            title="Github"
+          >
+            <span>Fork me on</span>
+            <GithubIcon />
+          </a>
         </Box>
       </Box>
     </Box>
