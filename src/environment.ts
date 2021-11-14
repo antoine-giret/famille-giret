@@ -1,3 +1,5 @@
+export const appTitle = 'Famille Giret' as const;
+
 export const languages = ['fr', 'en'] as const;
 export type TLanguage = typeof languages[number];
 

@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { defaultLanguage } from './languages';
+import { defaultLanguage } from './environment';
 import enTranslation from './translations/en.json';
 import frTranslation from './translations/fr.json';
 

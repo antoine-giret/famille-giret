@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { PageQuery } from '../../../graphql-types';
-import { defaultLanguage, prismicLanguagesMap } from '../../languages';
+import { appTitle, defaultLanguage, prismicLanguagesMap } from '../../environment';
 import Layout from '../../layouts/default';
 
 import ExperiencesList from './experiences/list';
@@ -35,7 +35,7 @@ export function ResumeTemplate({
   } = data;
 
   return (
-    <Layout location={location} title={`CV ${fullName} | Famille Giret`}>
+    <Layout location={location} title={`CV ${fullName} | ${appTitle}`}>
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Header data={data} />
         <ExperiencesList data={data} />

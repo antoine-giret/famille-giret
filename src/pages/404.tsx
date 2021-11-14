@@ -4,8 +4,8 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { defaultLanguage, languages } from '../environment';
 import useLanguage from '../hooks/language';
-import { defaultLanguage, languages } from '../languages';
 import Layout from '../layouts/default';
 import { titleStyle } from '../theme';
 

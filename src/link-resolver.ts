@@ -1,6 +1,6 @@
 import { PrismicResume } from '../graphql-types';
 
-import { defaultLanguage, prismicLanguagesMap } from './languages';
+import { defaultLanguage, prismicLanguagesMap } from './environment';
 
 function linkResolver(doc: PrismicResume): string {
   const language = prismicLanguagesMap[doc.lang];

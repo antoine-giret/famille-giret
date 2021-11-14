@@ -6,7 +6,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { IndexQuery } from '../../../graphql-types';
-import { defaultLanguage, prismicLanguagesMap } from '../../languages';
+import { appTitle, defaultLanguage, prismicLanguagesMap } from '../../environment';
 import Layout from '../../layouts/default';
 import { headerTitleStyle, pageDescriptionStyle, pageTitleStyle } from '../../theme';
 
@@ -40,7 +40,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
   } = useTranslation();
 
   return (
-    <Layout location={location} title="Famille Giret">
+    <Layout location={location} title={appTitle}>
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Heading as="h2" color="primary" sx={pageTitleStyle}>
           Hello World !

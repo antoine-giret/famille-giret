@@ -1,9 +1,9 @@
-import { defaultLanguage } from './src/languages';
+import { appTitle, defaultLanguage } from './src/environment';
 import linkResolver from './src/link-resolver';
 
 export = {
   siteMetadata: {
-    title: 'Famille Giret',
+    title: appTitle,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

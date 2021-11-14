@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { LayoutQuery } from '../../../graphql-types';
 import GithubIcon from '../../components/icons/github';
-import { defaultLanguage, prismicLanguagesMap } from '../../languages';
+import { defaultLanguage, prismicLanguagesMap } from '../../environment';
 import { linkStyle } from '../../theme';
 
 const listItemStyle: CSSProperties = {

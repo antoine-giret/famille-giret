@@ -1,4 +1,4 @@
-import { TLanguage } from '../../languages';
+import { TLanguage } from '../../environment';
 
 import EnFlagIcon from './en-flag';
 import FrFlagIcon from './fr-flag';

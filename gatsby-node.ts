@@ -2,7 +2,7 @@ import { resolve } from 'path';
 
 import { GatsbyNode } from 'gatsby';
 
-import { defaultLanguage, prismicLanguagesMap } from './src/languages';
+import { defaultLanguage, prismicLanguagesMap } from './src/environment';
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions;

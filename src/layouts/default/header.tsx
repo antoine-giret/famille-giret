@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 
 import { flagIconsMap } from '../../components/icons/flags';
-import { defaultLanguage, languages, languagesMap } from '../../languages';
+import { appTitle, defaultLanguage, languages, languagesMap } from '../../environment';
 import { headerTitleStyle, linkStyle } from '../../theme';
 
 interface IProps {
@@ -73,7 +73,7 @@ function Header({ location, title, openDrawer }: IProps): JSX.Element {
         />
         <Heading as="h1" color="text" sx={{ flexShrink: 0, ...headerTitleStyle }}>
           <Link style={linkStyle} to={language === defaultLanguage ? '/' : `/${language}`}>
-            Famille Giret
+            {appTitle}
           </Link>
         </Heading>
         <Box sx={{ flexGrow: 1 }} />
