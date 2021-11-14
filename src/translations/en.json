@@ -1,4 +1,7 @@
 {
+  "actions": {
+    "back_home": "Back home"
+  },
   "home": {
     "actions": {
       "see_resume": "See the resume"
@@ -8,6 +11,10 @@
   "navigation": {
     "home": "Home",
     "resumes": "About us"
+  },
+  "page_not_found": {
+    "description": "This page never existed or no longer exists.",
+    "title": "Page not found"
   },
   "periods": {
     "from_to": "De {{startDate}} à {{endDate}}",

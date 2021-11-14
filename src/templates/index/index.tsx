@@ -95,15 +95,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
                     />
                     <Link
                       className="secondary-button"
-                      style={{
-                        border: '1px solid #ff5722',
-                        borderRadius: 4,
-                        color: '#ff5722',
-                        display: 'inline-block',
-                        marginTop: 16,
-                        padding: '4px 8px',
-                        textDecoration: 'none',
-                      }}
+                      style={{ marginTop: 16 }}
                       to={`${language === defaultLanguage ? '' : `/${language}`}/resume/${uid}`}
                     >
                       {t('home.actions.see_resume')}

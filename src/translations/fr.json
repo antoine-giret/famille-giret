@@ -1,4 +1,7 @@
 {
+  "actions": {
+    "back_home": "Revenir à l'accueil"
+  },
   "home": {
     "actions": {
       "see_resume": "Voir le CV"
@@ -8,6 +11,10 @@
   "navigation": {
     "home": "Accueil",
     "resumes": "À propos de nous"
+  },
+  "page_not_found": {
+    "description": "Cette page n'a jamais existé ou n'existe plus.",
+    "title": "Page introuvable"
   },
   "periods": {
     "from_to": "De {{startDate}} à {{endDate}}",

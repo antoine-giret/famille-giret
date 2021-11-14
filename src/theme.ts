@@ -1,7 +1,7 @@
 import { ThemeUIStyleObject } from '@theme-ui/css';
 import { CSSProperties } from 'react';
 
-const titleStyle: ThemeUIStyleObject = {
+export const titleStyle: ThemeUIStyleObject = {
   fontFamily: 'Roboto Condensed',
 };
 

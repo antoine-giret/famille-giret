@@ -7,6 +7,12 @@ body.drawer-open {
 }
 
 a.secondary-button {
+  border: 1px solid var(--theme-ui-colors-secondary);
+  border-radius: 4px;
+  color: var(--theme-ui-colors-secondary);
+  display: inline-block;
+  padding: 4px 8px;
+  text-decoration: none;
   transition: all 0.5s ease;
 }
 

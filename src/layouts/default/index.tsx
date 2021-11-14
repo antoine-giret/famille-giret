@@ -42,7 +42,16 @@ export function Layout({ location, title, children }: IProps): JSX.Element {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header location={location} openDrawer={openDrawer} title={title} />
-      <Box as="main" sx={{ backgroundColor: 'whitesmoke', flexGrow: 1, padding: '96px 32px 32px' }}>
+      <Box
+        as="main"
+        sx={{
+          backgroundColor: 'whitesmoke',
+          display: 'flex',
+          flexDirection: 'column',
+          flexGrow: 1,
+          padding: '96px 32px 32px',
+        }}
+      >
         {children}
       </Box>
       <Footer />
