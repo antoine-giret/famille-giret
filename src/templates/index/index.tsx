@@ -77,7 +77,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
                       alignItems: 'center',
                       display: 'flex',
                       flexDirection: 'column',
-                      width: 'calc((100% - 16px) / 2)',
+                      width: ['100%', 'calc((100% - 16px) / 2)', 'calc((100% - 16px) / 2)'],
                     }}
                   >
                     <GatsbyImage
