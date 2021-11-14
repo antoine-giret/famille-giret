@@ -17,6 +17,7 @@
     "@fontsource/roboto-condensed": "4.5.0",
     "@theme-ui/preset-roboto": "0.11.3",
     "gatsby": "3.14.2",
+    "gatsby-plugin-google-gtag": "4.1.0",
     "gatsby-plugin-graphql-codegen": "3.0.0",
     "gatsby-plugin-i18n": "1.0.1",
     "gatsby-plugin-image": "1.14.1",

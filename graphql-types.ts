@@ -329,14 +329,6 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
   failOnError?: Maybe<Scalars['Boolean']>;
-  langKeyDefault?: Maybe<Scalars['String']>;
-  useLangKeyLayout?: Maybe<Scalars['Boolean']>;
-  prefixDefault?: Maybe<Scalars['Boolean']>;
-  path?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
   repositoryName?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   schemas?: Maybe<SitePluginPluginOptionsSchemas>;
@@ -345,6 +337,15 @@ export type SitePluginPluginOptions = {
   imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>;
   apiEndpoint?: Maybe<Scalars['String']>;
   pageSize?: Maybe<Scalars['Int']>;
+  langKeyDefault?: Maybe<Scalars['String']>;
+  useLangKeyLayout?: Maybe<Scalars['Boolean']>;
+  prefixDefault?: Maybe<Scalars['Boolean']>;
+  trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>;
+  path?: Maybe<Scalars['String']>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsSchemas = {
@@ -3538,14 +3539,6 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
-  langKeyDefault?: Maybe<StringQueryOperatorInput>;
-  useLangKeyLayout?: Maybe<BooleanQueryOperatorInput>;
-  prefixDefault?: Maybe<BooleanQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
-  allExtensions?: Maybe<BooleanQueryOperatorInput>;
-  isTSX?: Maybe<BooleanQueryOperatorInput>;
-  jsxPragma?: Maybe<StringQueryOperatorInput>;
   repositoryName?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>;
@@ -3554,6 +3547,15 @@ export type SitePluginPluginOptionsFilterInput = {
   imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>;
   apiEndpoint?: Maybe<StringQueryOperatorInput>;
   pageSize?: Maybe<IntQueryOperatorInput>;
+  langKeyDefault?: Maybe<StringQueryOperatorInput>;
+  useLangKeyLayout?: Maybe<BooleanQueryOperatorInput>;
+  prefixDefault?: Maybe<BooleanQueryOperatorInput>;
+  trackingIds?: Maybe<StringQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsSchemasFilterInput = {
@@ -4125,14 +4127,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___failOnError'
-  | 'pluginCreator___pluginOptions___langKeyDefault'
-  | 'pluginCreator___pluginOptions___useLangKeyLayout'
-  | 'pluginCreator___pluginOptions___prefixDefault'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___repositoryName'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___lang'
@@ -4144,6 +4138,15 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginCreator___pluginOptions___apiEndpoint'
   | 'pluginCreator___pluginOptions___pageSize'
+  | 'pluginCreator___pluginOptions___langKeyDefault'
+  | 'pluginCreator___pluginOptions___useLangKeyLayout'
+  | 'pluginCreator___pluginOptions___prefixDefault'
+  | 'pluginCreator___pluginOptions___trackingIds'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___packageJson___name'
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
@@ -4319,14 +4322,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
-  | 'pluginOptions___langKeyDefault'
-  | 'pluginOptions___useLangKeyLayout'
-  | 'pluginOptions___prefixDefault'
-  | 'pluginOptions___path'
-  | 'pluginOptions___pathCheck'
-  | 'pluginOptions___allExtensions'
-  | 'pluginOptions___isTSX'
-  | 'pluginOptions___jsxPragma'
   | 'pluginOptions___repositoryName'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___lang'
@@ -4338,6 +4333,15 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginOptions___apiEndpoint'
   | 'pluginOptions___pageSize'
+  | 'pluginOptions___langKeyDefault'
+  | 'pluginOptions___useLangKeyLayout'
+  | 'pluginOptions___prefixDefault'
+  | 'pluginOptions___trackingIds'
+  | 'pluginOptions___path'
+  | 'pluginOptions___pathCheck'
+  | 'pluginOptions___allExtensions'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
   | 'packageJson___name'
   | 'packageJson___description'
   | 'packageJson___version'
