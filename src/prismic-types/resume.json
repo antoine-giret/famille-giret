@@ -19,7 +19,7 @@
       "type": "StructuredText",
       "config": {
         "single": "heading2",
-        "label": "Full Name",
+        "label": "Full name",
         "placeholder": "Antoine Giret"
       }
     },
@@ -27,17 +27,33 @@
       "type": "StructuredText",
       "config": {
         "single": "heading6",
-        "label": "First Name",
+        "label": "First name",
         "placeholder": "Antoine"
       }
     },
     "resume": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, strong, em, hyperlink",
+        "multi": "paragraph,strong,em,hyperlink",
         "allowTargetBlank": true,
         "label": "Resume",
         "placeholder": "Spécialisé depuis plusieurs années dans le développement Typescript..."
+      }
+    },
+    "linkedin_profile_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "LinkedIn profile URL",
+        "placeholder": "https://www.linkedin.com/in/antoine-giret-47664396/"
+      }
+    },
+    "github_profile_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Github profile URL",
+        "placeholder": "https://github.com/antoine-giret"
       }
     },
     "experiences": {
@@ -73,7 +89,8 @@
             "config": {
               "allowTargetBlank": true,
               "label": "Company website",
-              "placeholder": "https://www.geovelo.fr/application/"
+              "placeholder": "https://www.geovelo.fr/application/",
+              "select": null
             }
           },
           "location": {
@@ -107,7 +124,7 @@
           "description": {
             "type": "StructuredText",
             "config": {
-              "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+              "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
               "allowTargetBlank": true,
               "label": "Description",
               "placeholder": "- Migration of Angular apps to React"
@@ -142,7 +159,8 @@
             "config": {
               "allowTargetBlank": true,
               "label": "School website",
-              "placeholder": "https://polytech.univ-tours.fr/"
+              "placeholder": "https://polytech.univ-tours.fr/",
+              "select": null
             }
           },
           "degree": {
@@ -168,7 +186,7 @@
           "additional_data": {
             "type": "StructuredText",
             "config": {
-              "multi": "paragraph, strong, em, hyperlink, list-item, o-list-item",
+              "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
               "allowTargetBlank": true,
               "label": "Additional data"
             }

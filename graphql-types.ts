@@ -329,14 +329,6 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
   failOnError?: Maybe<Scalars['Boolean']>;
-  repositoryName?: Maybe<Scalars['String']>;
-  accessToken?: Maybe<Scalars['String']>;
-  schemas?: Maybe<SitePluginPluginOptionsSchemas>;
-  lang?: Maybe<Scalars['String']>;
-  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>;
-  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>;
-  apiEndpoint?: Maybe<Scalars['String']>;
-  pageSize?: Maybe<Scalars['Int']>;
   langKeyDefault?: Maybe<Scalars['String']>;
   useLangKeyLayout?: Maybe<Scalars['Boolean']>;
   prefixDefault?: Maybe<Scalars['Boolean']>;
@@ -345,6 +337,14 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+  repositoryName?: Maybe<Scalars['String']>;
+  accessToken?: Maybe<Scalars['String']>;
+  schemas?: Maybe<SitePluginPluginOptionsSchemas>;
+  lang?: Maybe<Scalars['String']>;
+  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>;
+  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>;
+  apiEndpoint?: Maybe<Scalars['String']>;
+  pageSize?: Maybe<Scalars['Int']>;
 };
 
 export type SitePluginPluginOptionsSchemas = {
@@ -361,6 +361,8 @@ export type SitePluginPluginOptionsSchemasResumeMain = {
   full_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_Name>;
   first_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_Name>;
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResume>;
+  linkedin_profile_url?: Maybe<SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_Url>;
+  github_profile_url?: Maybe<SitePluginPluginOptionsSchemasResumeMainGithub_Profile_Url>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiences>;
   training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTraining>;
   technical_skills?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_Skills>;
@@ -415,6 +417,28 @@ export type SitePluginPluginOptionsSchemasResumeMainResume = {
 
 export type SitePluginPluginOptionsSchemasResumeMainResumeConfig = {
   multi?: Maybe<Scalars['String']>;
+  allowTargetBlank?: Maybe<Scalars['Boolean']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_Url = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_UrlConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_UrlConfig = {
+  allowTargetBlank?: Maybe<Scalars['Boolean']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainGithub_Profile_Url = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainGithub_Profile_UrlConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainGithub_Profile_UrlConfig = {
   allowTargetBlank?: Maybe<Scalars['Boolean']>;
   label?: Maybe<Scalars['String']>;
   placeholder?: Maybe<Scalars['String']>;
@@ -1906,6 +1930,8 @@ export type PrismicResumeDataType = {
   experiences?: Maybe<Array<Maybe<PrismicResumeDataExperiences>>>;
   first_name?: Maybe<PrismicStructuredTextType>;
   full_name?: Maybe<PrismicStructuredTextType>;
+  github_profile_url?: Maybe<PrismicLinkType>;
+  linkedin_profile_url?: Maybe<PrismicLinkType>;
   other_skills?: Maybe<Array<Maybe<PrismicResumeDataOtherSkills>>>;
   resume?: Maybe<PrismicStructuredTextType>;
   technical_skills?: Maybe<Array<Maybe<PrismicResumeDataTechnicalSkills>>>;
@@ -3512,14 +3538,6 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
-  repositoryName?: Maybe<StringQueryOperatorInput>;
-  accessToken?: Maybe<StringQueryOperatorInput>;
-  schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>;
-  lang?: Maybe<StringQueryOperatorInput>;
-  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>;
-  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>;
-  apiEndpoint?: Maybe<StringQueryOperatorInput>;
-  pageSize?: Maybe<IntQueryOperatorInput>;
   langKeyDefault?: Maybe<StringQueryOperatorInput>;
   useLangKeyLayout?: Maybe<BooleanQueryOperatorInput>;
   prefixDefault?: Maybe<BooleanQueryOperatorInput>;
@@ -3528,6 +3546,14 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+  repositoryName?: Maybe<StringQueryOperatorInput>;
+  accessToken?: Maybe<StringQueryOperatorInput>;
+  schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>;
+  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>;
+  apiEndpoint?: Maybe<StringQueryOperatorInput>;
+  pageSize?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsSchemasFilterInput = {
@@ -3544,6 +3570,8 @@ export type SitePluginPluginOptionsSchemasResumeMainFilterInput = {
   full_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_NameFilterInput>;
   first_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_NameFilterInput>;
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeMainResumeFilterInput>;
+  linkedin_profile_url?: Maybe<SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_UrlFilterInput>;
+  github_profile_url?: Maybe<SitePluginPluginOptionsSchemasResumeMainGithub_Profile_UrlFilterInput>;
   experiences?: Maybe<SitePluginPluginOptionsSchemasResumeMainExperiencesFilterInput>;
   training?: Maybe<SitePluginPluginOptionsSchemasResumeMainTrainingFilterInput>;
   technical_skills?: Maybe<SitePluginPluginOptionsSchemasResumeMainTechnical_SkillsFilterInput>;
@@ -3598,6 +3626,28 @@ export type SitePluginPluginOptionsSchemasResumeMainResumeFilterInput = {
 
 export type SitePluginPluginOptionsSchemasResumeMainResumeConfigFilterInput = {
   multi?: Maybe<StringQueryOperatorInput>;
+  allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_UrlFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_UrlConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainLinkedin_Profile_UrlConfigFilterInput = {
+  allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainGithub_Profile_UrlFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainGithub_Profile_UrlConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainGithub_Profile_UrlConfigFilterInput = {
   allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
   placeholder?: Maybe<StringQueryOperatorInput>;
@@ -4075,6 +4125,14 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___langKeyDefault'
+  | 'pluginCreator___pluginOptions___useLangKeyLayout'
+  | 'pluginCreator___pluginOptions___prefixDefault'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___pluginOptions___repositoryName'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___lang'
@@ -4086,14 +4144,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginCreator___pluginOptions___apiEndpoint'
   | 'pluginCreator___pluginOptions___pageSize'
-  | 'pluginCreator___pluginOptions___langKeyDefault'
-  | 'pluginCreator___pluginOptions___useLangKeyLayout'
-  | 'pluginCreator___pluginOptions___prefixDefault'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___packageJson___name'
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
@@ -4269,6 +4319,14 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
+  | 'pluginOptions___langKeyDefault'
+  | 'pluginOptions___useLangKeyLayout'
+  | 'pluginOptions___prefixDefault'
+  | 'pluginOptions___path'
+  | 'pluginOptions___pathCheck'
+  | 'pluginOptions___allExtensions'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
   | 'pluginOptions___repositoryName'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___lang'
@@ -4280,14 +4338,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___imagePlaceholderImgixParams___q'
   | 'pluginOptions___apiEndpoint'
   | 'pluginOptions___pageSize'
-  | 'pluginOptions___langKeyDefault'
-  | 'pluginOptions___useLangKeyLayout'
-  | 'pluginOptions___prefixDefault'
-  | 'pluginOptions___path'
-  | 'pluginOptions___pathCheck'
-  | 'pluginOptions___allExtensions'
-  | 'pluginOptions___isTSX'
-  | 'pluginOptions___jsxPragma'
   | 'packageJson___name'
   | 'packageJson___description'
   | 'packageJson___version'
@@ -5406,6 +5456,8 @@ export type PrismicResumeDataTypeFilterInput = {
   experiences?: Maybe<PrismicResumeDataExperiencesFilterListInput>;
   first_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
   full_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  github_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
+  linkedin_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
   other_skills?: Maybe<PrismicResumeDataOtherSkillsFilterListInput>;
   resume?: Maybe<PrismicStructuredTextTypeFilterInput>;
   technical_skills?: Maybe<PrismicResumeDataTechnicalSkillsFilterListInput>;
@@ -5663,6 +5715,98 @@ export type PrismicResumeFieldsEnum =
   | 'data___full_name___text'
   | 'data___full_name___html'
   | 'data___full_name___raw'
+  | 'data___github_profile_url___link_type'
+  | 'data___github_profile_url___isBroken'
+  | 'data___github_profile_url___url'
+  | 'data___github_profile_url___target'
+  | 'data___github_profile_url___size'
+  | 'data___github_profile_url___id'
+  | 'data___github_profile_url___type'
+  | 'data___github_profile_url___tags'
+  | 'data___github_profile_url___lang'
+  | 'data___github_profile_url___slug'
+  | 'data___github_profile_url___uid'
+  | 'data___github_profile_url___localFile___sourceInstanceName'
+  | 'data___github_profile_url___localFile___absolutePath'
+  | 'data___github_profile_url___localFile___relativePath'
+  | 'data___github_profile_url___localFile___extension'
+  | 'data___github_profile_url___localFile___size'
+  | 'data___github_profile_url___localFile___prettySize'
+  | 'data___github_profile_url___localFile___modifiedTime'
+  | 'data___github_profile_url___localFile___accessTime'
+  | 'data___github_profile_url___localFile___changeTime'
+  | 'data___github_profile_url___localFile___birthTime'
+  | 'data___github_profile_url___localFile___root'
+  | 'data___github_profile_url___localFile___dir'
+  | 'data___github_profile_url___localFile___base'
+  | 'data___github_profile_url___localFile___ext'
+  | 'data___github_profile_url___localFile___name'
+  | 'data___github_profile_url___localFile___relativeDirectory'
+  | 'data___github_profile_url___localFile___dev'
+  | 'data___github_profile_url___localFile___mode'
+  | 'data___github_profile_url___localFile___nlink'
+  | 'data___github_profile_url___localFile___uid'
+  | 'data___github_profile_url___localFile___gid'
+  | 'data___github_profile_url___localFile___rdev'
+  | 'data___github_profile_url___localFile___ino'
+  | 'data___github_profile_url___localFile___atimeMs'
+  | 'data___github_profile_url___localFile___mtimeMs'
+  | 'data___github_profile_url___localFile___ctimeMs'
+  | 'data___github_profile_url___localFile___atime'
+  | 'data___github_profile_url___localFile___mtime'
+  | 'data___github_profile_url___localFile___ctime'
+  | 'data___github_profile_url___localFile___birthtime'
+  | 'data___github_profile_url___localFile___birthtimeMs'
+  | 'data___github_profile_url___localFile___childrenImageSharp'
+  | 'data___github_profile_url___localFile___id'
+  | 'data___github_profile_url___localFile___children'
+  | 'data___github_profile_url___raw'
+  | 'data___linkedin_profile_url___link_type'
+  | 'data___linkedin_profile_url___isBroken'
+  | 'data___linkedin_profile_url___url'
+  | 'data___linkedin_profile_url___target'
+  | 'data___linkedin_profile_url___size'
+  | 'data___linkedin_profile_url___id'
+  | 'data___linkedin_profile_url___type'
+  | 'data___linkedin_profile_url___tags'
+  | 'data___linkedin_profile_url___lang'
+  | 'data___linkedin_profile_url___slug'
+  | 'data___linkedin_profile_url___uid'
+  | 'data___linkedin_profile_url___localFile___sourceInstanceName'
+  | 'data___linkedin_profile_url___localFile___absolutePath'
+  | 'data___linkedin_profile_url___localFile___relativePath'
+  | 'data___linkedin_profile_url___localFile___extension'
+  | 'data___linkedin_profile_url___localFile___size'
+  | 'data___linkedin_profile_url___localFile___prettySize'
+  | 'data___linkedin_profile_url___localFile___modifiedTime'
+  | 'data___linkedin_profile_url___localFile___accessTime'
+  | 'data___linkedin_profile_url___localFile___changeTime'
+  | 'data___linkedin_profile_url___localFile___birthTime'
+  | 'data___linkedin_profile_url___localFile___root'
+  | 'data___linkedin_profile_url___localFile___dir'
+  | 'data___linkedin_profile_url___localFile___base'
+  | 'data___linkedin_profile_url___localFile___ext'
+  | 'data___linkedin_profile_url___localFile___name'
+  | 'data___linkedin_profile_url___localFile___relativeDirectory'
+  | 'data___linkedin_profile_url___localFile___dev'
+  | 'data___linkedin_profile_url___localFile___mode'
+  | 'data___linkedin_profile_url___localFile___nlink'
+  | 'data___linkedin_profile_url___localFile___uid'
+  | 'data___linkedin_profile_url___localFile___gid'
+  | 'data___linkedin_profile_url___localFile___rdev'
+  | 'data___linkedin_profile_url___localFile___ino'
+  | 'data___linkedin_profile_url___localFile___atimeMs'
+  | 'data___linkedin_profile_url___localFile___mtimeMs'
+  | 'data___linkedin_profile_url___localFile___ctimeMs'
+  | 'data___linkedin_profile_url___localFile___atime'
+  | 'data___linkedin_profile_url___localFile___mtime'
+  | 'data___linkedin_profile_url___localFile___ctime'
+  | 'data___linkedin_profile_url___localFile___birthtime'
+  | 'data___linkedin_profile_url___localFile___birthtimeMs'
+  | 'data___linkedin_profile_url___localFile___childrenImageSharp'
+  | 'data___linkedin_profile_url___localFile___id'
+  | 'data___linkedin_profile_url___localFile___children'
+  | 'data___linkedin_profile_url___raw'
   | 'data___other_skills'
   | 'data___other_skills___title___text'
   | 'data___other_skills___title___html'
@@ -5954,7 +6098,7 @@ export type PageQueryVariables = Exact<{
 
 export type PageQuery = { allPrismicResume: { edges: Array<{ node: (
         Pick<PrismicResume, 'uid'>
-        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>>, experiences?: Maybe<Array<Maybe<(
+        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>>, linkedin_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, github_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, experiences?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataExperiences, 'start_date' | 'current' | 'end_date'>
             & { company_logo?: Maybe<Pick<PrismicResumeDataExperiencesCompanyLogoImageType, 'gatsbyImageData'>>, company_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, company_website?: Maybe<Pick<PrismicLinkType, 'url'>>, location?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, description?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
           )>>>, training?: Maybe<Array<Maybe<(

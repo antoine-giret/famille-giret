@@ -62,6 +62,12 @@ export const query = graphql`
             resume {
               html
             }
+            linkedin_profile_url {
+              url
+            }
+            github_profile_url {
+              url
+            }
             experiences {
               company_logo {
                 gatsbyImageData(width: 80, backgroundColor: "transparent", placeholder: BLURRED)

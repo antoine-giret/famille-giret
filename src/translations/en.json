@@ -22,6 +22,8 @@
   },
   "resume": {
     "experiences": "Experiences",
+    "github_profile": "Github profile",
+    "linkedin_profile": "LinkedIn profile",
     "other_skills": "Other skills",
     "skills": "Skills",
     "technical_skills": "Technical skills",
