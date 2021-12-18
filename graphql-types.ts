@@ -6937,8 +6937,11 @@ export type BlogPostQueryVariables = Exact<{
 
 
 export type BlogPostQuery = { allPrismicBlogPost: { edges: Array<{ node: (
-        Pick<PrismicBlogPost, 'uid'>
-        & { data?: Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, lead?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }
+        Pick<PrismicBlogPost, 'uid' | 'first_publication_date'>
+        & { data?: Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, author?: Maybe<{ document?: Maybe<(
+              Pick<PrismicResume, 'uid'>
+              & { data?: Maybe<{ first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }
+            )> }>, image?: Maybe<Pick<PrismicBlogPostDataImageImageType, 'gatsbyImageData'>>, lead?: Maybe<Pick<PrismicStructuredTextType, 'text' | 'html'>> }> }
       ) }> } };
 
 export type BlogQueryVariables = Exact<{ [key: string]: never; }>;

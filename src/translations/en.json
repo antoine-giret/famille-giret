@@ -5,7 +5,7 @@
   "blog": {
     "description": "Find all of our posts here",
     "empty_list": "No post has yet been published in this language. Change the language to see more content.",
-    "published_by_on": "Published by {{author}} on {{date}}",
+    "published_by_on": "Published by <0>{{author}}<\/0> on {{date}}",
     "title": "The blog"
   },
   "home": {
