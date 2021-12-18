@@ -99,9 +99,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
                     <Link
                       className="secondary-button"
                       style={{ marginTop: 16 }}
-                      to={`${
-                        language === defaultLanguage ? `/resume/${uid}` : `/${language}`
-                      }/resume/${uid}`}
+                      to={`${language === defaultLanguage ? '' : `/${language}`}/resumes/${uid}`}
                     >
                       {t('home.actions.see_resume')}
                     </Link>

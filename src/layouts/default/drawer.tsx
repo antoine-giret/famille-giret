@@ -169,7 +169,7 @@ function Drawer({ open, data: { allPrismicResume }, openDrawer }: IProps): JSX.E
                     key={uid}
                     onClick={() => openDrawer(false)}
                     style={{ ...linkStyle, ...listItemStyle }}
-                    to={`${language === defaultLanguage ? '' : `/${language}`}/resume/${uid}/`}
+                    to={`${language === defaultLanguage ? '' : `/${language}`}/resumes/${uid}/`}
                   >
                     <GatsbyImage
                       alt={`Photo of ${firstName}`}

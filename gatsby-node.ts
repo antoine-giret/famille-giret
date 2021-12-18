@@ -31,7 +31,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     const language = prismicLanguagesMap[lang];
 
     createPage({
-      path: language === defaultLanguage ? `resume/${uid}` : `${language}/resume/${uid}`,
+      path: language === defaultLanguage ? `resumes/${uid}` : `${language}/resumes/${uid}`,
       component: resolve(__dirname, 'src/templates/resume/index.tsx'),
       context: { uid, lang },
     });
