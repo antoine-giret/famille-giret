@@ -269,6 +269,7 @@ export type SiteBuildTimeArgs = {
 export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  siteUrl?: Maybe<Scalars['String']>;
 };
 
 export type SiteFunction = Node & {
@@ -341,7 +342,12 @@ export type SitePluginPluginOptions = {
   useLangKeyLayout?: Maybe<Scalars['Boolean']>;
   prefixDefault?: Maybe<Scalars['Boolean']>;
   trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>;
+  output?: Maybe<Scalars['String']>;
+  createLinkInHead?: Maybe<Scalars['Boolean']>;
+  entryLimit?: Maybe<Scalars['Int']>;
+  query?: Maybe<Scalars['String']>;
   host?: Maybe<Scalars['String']>;
+  sitemap?: Maybe<Scalars['String']>;
   policy?: Maybe<Array<Maybe<SitePluginPluginOptionsPolicy>>>;
   path?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -352,6 +358,7 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsSchemas = {
   resume?: Maybe<SitePluginPluginOptionsSchemasResume>;
+  blog_post?: Maybe<SitePluginPluginOptionsSchemasBlog_Post>;
 };
 
 export type SitePluginPluginOptionsSchemasResume = {
@@ -710,6 +717,120 @@ export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitl
 
 export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitleConfig = {
   single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_Post = {
+  main?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMain>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMain = {
+  uid?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainUid>;
+  title?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainTitle>;
+  image?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainImage>;
+  author?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainAuthor>;
+  lead?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainLead>;
+  sections?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSections>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainUid = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainUidConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainUidConfig = {
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainTitle = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainTitleConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainTitleConfig = {
+  single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainImage = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainImageConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainImageConfig = {
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainAuthor = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainAuthorConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainAuthorConfig = {
+  select?: Maybe<Scalars['String']>;
+  customtypes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainLead = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainLeadConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainLeadConfig = {
+  multi?: Maybe<Scalars['String']>;
+  allowTargetBlank?: Maybe<Scalars['Boolean']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSections = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfig = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFields>;
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFields = {
+  section_image?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_Image>;
+  section_title?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_Title>;
+  section_text?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_Text>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_Image = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_ImageConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_ImageConfig = {
+  label?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_Title = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TitleConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TitleConfig = {
+  single?: Maybe<Scalars['String']>;
+  label?: Maybe<Scalars['String']>;
+  placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_Text = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TextConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TextConfig = {
+  multi?: Maybe<Scalars['String']>;
+  allowTargetBlank?: Maybe<Scalars['Boolean']>;
   label?: Maybe<Scalars['String']>;
   placeholder?: Maybe<Scalars['String']>;
 };
@@ -1651,6 +1772,166 @@ export type ImgixParamsInput = {
   width?: Maybe<Scalars['Float']>;
 };
 
+export type PrismicBlogPostDataImageImageType = {
+  alt?: Maybe<Scalars['String']>;
+  copyright?: Maybe<Scalars['String']>;
+  dimensions?: Maybe<PrismicImageDimensionsType>;
+  /** A plain imgix URL with the URL and params applied. */
+  url?: Maybe<Scalars['String']>;
+  /** Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are "fixed"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information. */
+  fixed?: Maybe<ImgixFixed>;
+  /** Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information. */
+  fluid?: Maybe<ImgixFluid>;
+  gatsbyImageData?: Maybe<Scalars['JSON']>;
+  localFile?: Maybe<File>;
+};
+
+
+export type PrismicBlogPostDataImageImageTypeUrlArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicBlogPostDataImageImageTypeFixedArgs = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  quality?: Maybe<Scalars['Int']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicBlogPostDataImageImageTypeFluidArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicBlogPostDataImageImageTypeGatsbyImageDataArgs = {
+  layout?: Maybe<GatsbyImageLayout>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  aspectRatio?: Maybe<Scalars['Float']>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  breakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  sizes?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+  placeholder?: Maybe<ImgixPlaceholder>;
+  widthTolerance?: Maybe<Scalars['Float']>;
+  srcSetMinWidth?: Maybe<Scalars['Int']>;
+  srcSetMaxWidth?: Maybe<Scalars['Int']>;
+};
+
+export type PrismicBlogPostDataSectionsSectionImageImageType = {
+  alt?: Maybe<Scalars['String']>;
+  copyright?: Maybe<Scalars['String']>;
+  dimensions?: Maybe<PrismicImageDimensionsType>;
+  /** A plain imgix URL with the URL and params applied. */
+  url?: Maybe<Scalars['String']>;
+  /** Should be used to generate fixed-width images (i.e. the size of the image doesn't change when the size of the browser changes, and are "fixed"). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFixed fragment should be used. See the project's README for more information. */
+  fixed?: Maybe<ImgixFixed>;
+  /** Should be used to generate fluid-width images (i.e. images that change when the size of the browser changes). Returns data compatible with gatsby-image. Instead of accessing this data directly, the GatsbySourceImgixFluid fragment should be used. See the project's README for more information. */
+  fluid?: Maybe<ImgixFluid>;
+  gatsbyImageData?: Maybe<Scalars['JSON']>;
+  localFile?: Maybe<File>;
+};
+
+
+export type PrismicBlogPostDataSectionsSectionImageImageTypeUrlArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicBlogPostDataSectionsSectionImageImageTypeFixedArgs = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  quality?: Maybe<Scalars['Int']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicBlogPostDataSectionsSectionImageImageTypeFluidArgs = {
+  imgixParams?: Maybe<ImgixParamsInput>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+};
+
+
+export type PrismicBlogPostDataSectionsSectionImageImageTypeGatsbyImageDataArgs = {
+  layout?: Maybe<GatsbyImageLayout>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  aspectRatio?: Maybe<Scalars['Float']>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  breakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+  sizes?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  imgixParams?: Maybe<ImgixParamsInput>;
+  placeholderImgixParams?: Maybe<ImgixParamsInput>;
+  placeholder?: Maybe<ImgixPlaceholder>;
+  widthTolerance?: Maybe<Scalars['Float']>;
+  srcSetMinWidth?: Maybe<Scalars['Int']>;
+  srcSetMaxWidth?: Maybe<Scalars['Int']>;
+};
+
+export type PrismicBlogPostDataSections = {
+  section_image?: Maybe<PrismicBlogPostDataSectionsSectionImageImageType>;
+  section_text?: Maybe<PrismicStructuredTextType>;
+  section_title?: Maybe<PrismicStructuredTextType>;
+};
+
+export type PrismicBlogPostDataType = {
+  author?: Maybe<PrismicLinkType>;
+  image?: Maybe<PrismicBlogPostDataImageImageType>;
+  lead?: Maybe<PrismicStructuredTextType>;
+  sections?: Maybe<Array<Maybe<PrismicBlogPostDataSections>>>;
+  title?: Maybe<PrismicStructuredTextType>;
+};
+
+export type PrismicBlogPost = Node & {
+  uid: Scalars['String'];
+  data?: Maybe<PrismicBlogPostDataType>;
+  dataRaw: Scalars['JSON'];
+  prismicId: Scalars['ID'];
+  alternate_languages: Array<PrismicAlternateLanguageType>;
+  first_publication_date: Scalars['Date'];
+  href: Scalars['String'];
+  lang: Scalars['String'];
+  last_publication_date: Scalars['Date'];
+  tags: Array<Scalars['String']>;
+  type: Scalars['String'];
+  url?: Maybe<Scalars['String']>;
+  _previewable: Scalars['ID'];
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+
+export type PrismicBlogPostFirst_Publication_DateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type PrismicBlogPostLast_Publication_DateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
 export type PrismicResumeDataExperiencesCompanyLogoImageType = {
   alt?: Maybe<Scalars['String']>;
   copyright?: Maybe<Scalars['String']>;
@@ -1983,7 +2264,7 @@ export type PrismicResumeLast_Publication_DateArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-export type PrismicAllDocumentTypes = PrismicResume;
+export type PrismicAllDocumentTypes = PrismicBlogPost | PrismicResume;
 
 export type Query = {
   file?: Maybe<File>;
@@ -2008,6 +2289,8 @@ export type Query = {
   allPrismicEmbedType: PrismicEmbedTypeConnection;
   prismicTypePathType?: Maybe<PrismicTypePathType>;
   allPrismicTypePathType: PrismicTypePathTypeConnection;
+  prismicBlogPost?: Maybe<PrismicBlogPost>;
+  allPrismicBlogPost: PrismicBlogPostConnection;
   prismicResume?: Maybe<PrismicResume>;
   allPrismicResume: PrismicResumeConnection;
 };
@@ -2289,6 +2572,35 @@ export type QueryPrismicTypePathTypeArgs = {
 export type QueryAllPrismicTypePathTypeArgs = {
   filter?: Maybe<PrismicTypePathTypeFilterInput>;
   sort?: Maybe<PrismicTypePathTypeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryPrismicBlogPostArgs = {
+  uid?: Maybe<StringQueryOperatorInput>;
+  data?: Maybe<PrismicBlogPostDataTypeFilterInput>;
+  dataRaw?: Maybe<JsonQueryOperatorInput>;
+  prismicId?: Maybe<IdQueryOperatorInput>;
+  alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>;
+  first_publication_date?: Maybe<DateQueryOperatorInput>;
+  href?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  last_publication_date?: Maybe<DateQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  _previewable?: Maybe<IdQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllPrismicBlogPostArgs = {
+  filter?: Maybe<PrismicBlogPostFilterInput>;
+  sort?: Maybe<PrismicBlogPostSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3117,6 +3429,7 @@ export type DirectorySortInput = {
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  siteUrl?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteConnection = {
@@ -3168,6 +3481,7 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
+  | 'siteMetadata___siteUrl'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -3558,7 +3872,12 @@ export type SitePluginPluginOptionsFilterInput = {
   useLangKeyLayout?: Maybe<BooleanQueryOperatorInput>;
   prefixDefault?: Maybe<BooleanQueryOperatorInput>;
   trackingIds?: Maybe<StringQueryOperatorInput>;
+  output?: Maybe<StringQueryOperatorInput>;
+  createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
+  entryLimit?: Maybe<IntQueryOperatorInput>;
+  query?: Maybe<StringQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  sitemap?: Maybe<StringQueryOperatorInput>;
   policy?: Maybe<SitePluginPluginOptionsPolicyFilterListInput>;
   path?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
@@ -3569,6 +3888,7 @@ export type SitePluginPluginOptionsFilterInput = {
 
 export type SitePluginPluginOptionsSchemasFilterInput = {
   resume?: Maybe<SitePluginPluginOptionsSchemasResumeFilterInput>;
+  blog_post?: Maybe<SitePluginPluginOptionsSchemasBlog_PostFilterInput>;
 };
 
 export type SitePluginPluginOptionsSchemasResumeFilterInput = {
@@ -3931,6 +4251,120 @@ export type SitePluginPluginOptionsSchemasResumeMainOther_SkillsConfigFieldsTitl
   placeholder?: Maybe<StringQueryOperatorInput>;
 };
 
+export type SitePluginPluginOptionsSchemasBlog_PostFilterInput = {
+  main?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainFilterInput = {
+  uid?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainUidFilterInput>;
+  title?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainTitleFilterInput>;
+  image?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainImageFilterInput>;
+  author?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainAuthorFilterInput>;
+  lead?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainLeadFilterInput>;
+  sections?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainUidFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainUidConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainUidConfigFilterInput = {
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainTitleFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainTitleConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainTitleConfigFilterInput = {
+  single?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainImageFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainImageConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainImageConfigFilterInput = {
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainAuthorFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainAuthorConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainAuthorConfigFilterInput = {
+  select?: Maybe<StringQueryOperatorInput>;
+  customtypes?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainLeadFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainLeadConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainLeadConfigFilterInput = {
+  multi?: Maybe<StringQueryOperatorInput>;
+  allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFilterInput = {
+  fields?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsFilterInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsFilterInput = {
+  section_image?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_ImageFilterInput>;
+  section_title?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TitleFilterInput>;
+  section_text?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TextFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_ImageFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_ImageConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_ImageConfigFilterInput = {
+  label?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TitleFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TitleConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TitleConfigFilterInput = {
+  single?: Maybe<StringQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TextFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TextConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasBlog_PostMainSectionsConfigFieldsSection_TextConfigFilterInput = {
+  multi?: Maybe<StringQueryOperatorInput>;
+  allowTargetBlank?: Maybe<BooleanQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SitePluginPluginOptionsImageImgixParamsFilterInput = {
   auto?: Maybe<StringQueryOperatorInput>;
   fit?: Maybe<StringQueryOperatorInput>;
@@ -4160,7 +4594,12 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___useLangKeyLayout'
   | 'pluginCreator___pluginOptions___prefixDefault'
   | 'pluginCreator___pluginOptions___trackingIds'
+  | 'pluginCreator___pluginOptions___output'
+  | 'pluginCreator___pluginOptions___createLinkInHead'
+  | 'pluginCreator___pluginOptions___entryLimit'
+  | 'pluginCreator___pluginOptions___query'
   | 'pluginCreator___pluginOptions___host'
+  | 'pluginCreator___pluginOptions___sitemap'
   | 'pluginCreator___pluginOptions___policy'
   | 'pluginCreator___pluginOptions___policy___userAgent'
   | 'pluginCreator___pluginOptions___policy___allow'
@@ -4359,7 +4798,12 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___useLangKeyLayout'
   | 'pluginOptions___prefixDefault'
   | 'pluginOptions___trackingIds'
+  | 'pluginOptions___output'
+  | 'pluginOptions___createLinkInHead'
+  | 'pluginOptions___entryLimit'
+  | 'pluginOptions___query'
   | 'pluginOptions___host'
+  | 'pluginOptions___sitemap'
   | 'pluginOptions___policy'
   | 'pluginOptions___policy___userAgent'
   | 'pluginOptions___policy___allow'
@@ -5482,36 +5926,45 @@ export type PrismicTypePathTypeSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type PrismicResumeDataTypeFilterInput = {
-  experiences?: Maybe<PrismicResumeDataExperiencesFilterListInput>;
-  first_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
-  full_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
-  github_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
-  linkedin_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
-  other_skills?: Maybe<PrismicResumeDataOtherSkillsFilterListInput>;
-  resume?: Maybe<PrismicStructuredTextTypeFilterInput>;
-  technical_skills?: Maybe<PrismicResumeDataTechnicalSkillsFilterListInput>;
-  thumbnail?: Maybe<PrismicResumeDataThumbnailImageTypeFilterInput>;
-  training?: Maybe<PrismicResumeDataTrainingFilterListInput>;
-};
-
-export type PrismicResumeDataExperiencesFilterListInput = {
-  elemMatch?: Maybe<PrismicResumeDataExperiencesFilterInput>;
-};
-
-export type PrismicResumeDataExperiencesFilterInput = {
-  company_logo?: Maybe<PrismicResumeDataExperiencesCompanyLogoImageTypeFilterInput>;
-  company_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
-  company_website?: Maybe<PrismicLinkTypeFilterInput>;
-  current?: Maybe<BooleanQueryOperatorInput>;
-  description?: Maybe<PrismicStructuredTextTypeFilterInput>;
-  end_date?: Maybe<DateQueryOperatorInput>;
-  location?: Maybe<PrismicStructuredTextTypeFilterInput>;
-  start_date?: Maybe<DateQueryOperatorInput>;
+export type PrismicBlogPostDataTypeFilterInput = {
+  author?: Maybe<PrismicLinkTypeFilterInput>;
+  image?: Maybe<PrismicBlogPostDataImageImageTypeFilterInput>;
+  lead?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  sections?: Maybe<PrismicBlogPostDataSectionsFilterListInput>;
   title?: Maybe<PrismicStructuredTextTypeFilterInput>;
 };
 
-export type PrismicResumeDataExperiencesCompanyLogoImageTypeFilterInput = {
+export type PrismicLinkTypeFilterInput = {
+  link_type?: Maybe<PrismicLinkTypeEnumQueryOperatorInput>;
+  isBroken?: Maybe<BooleanQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  target?: Maybe<StringQueryOperatorInput>;
+  size?: Maybe<IntQueryOperatorInput>;
+  id?: Maybe<IdQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
+  uid?: Maybe<StringQueryOperatorInput>;
+  localFile?: Maybe<FileFilterInput>;
+  raw?: Maybe<JsonQueryOperatorInput>;
+};
+
+export type PrismicLinkTypeEnumQueryOperatorInput = {
+  eq?: Maybe<PrismicLinkTypeEnum>;
+  ne?: Maybe<PrismicLinkTypeEnum>;
+  in?: Maybe<Array<Maybe<PrismicLinkTypeEnum>>>;
+  nin?: Maybe<Array<Maybe<PrismicLinkTypeEnum>>>;
+};
+
+export type IdQueryOperatorInput = {
+  eq?: Maybe<Scalars['ID']>;
+  ne?: Maybe<Scalars['ID']>;
+  in?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  nin?: Maybe<Array<Maybe<Scalars['ID']>>>;
+};
+
+export type PrismicBlogPostDataImageImageTypeFilterInput = {
   alt?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>;
@@ -5554,34 +6007,411 @@ export type PrismicStructuredTextTypeFilterInput = {
   raw?: Maybe<JsonQueryOperatorInput>;
 };
 
-export type PrismicLinkTypeFilterInput = {
-  link_type?: Maybe<PrismicLinkTypeEnumQueryOperatorInput>;
-  isBroken?: Maybe<BooleanQueryOperatorInput>;
+export type PrismicBlogPostDataSectionsFilterListInput = {
+  elemMatch?: Maybe<PrismicBlogPostDataSectionsFilterInput>;
+};
+
+export type PrismicBlogPostDataSectionsFilterInput = {
+  section_image?: Maybe<PrismicBlogPostDataSectionsSectionImageImageTypeFilterInput>;
+  section_text?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  section_title?: Maybe<PrismicStructuredTextTypeFilterInput>;
+};
+
+export type PrismicBlogPostDataSectionsSectionImageImageTypeFilterInput = {
+  alt?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>;
   url?: Maybe<StringQueryOperatorInput>;
-  target?: Maybe<StringQueryOperatorInput>;
-  size?: Maybe<IntQueryOperatorInput>;
-  id?: Maybe<IdQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-  tags?: Maybe<StringQueryOperatorInput>;
-  lang?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
-  uid?: Maybe<StringQueryOperatorInput>;
+  fixed?: Maybe<ImgixFixedFilterInput>;
+  fluid?: Maybe<ImgixFluidFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   localFile?: Maybe<FileFilterInput>;
+};
+
+export type PrismicAlternateLanguageTypeFilterListInput = {
+  elemMatch?: Maybe<PrismicAlternateLanguageTypeFilterInput>;
+};
+
+export type PrismicAlternateLanguageTypeFilterInput = {
+  id?: Maybe<IdQueryOperatorInput>;
+  uid?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
   raw?: Maybe<JsonQueryOperatorInput>;
 };
 
-export type PrismicLinkTypeEnumQueryOperatorInput = {
-  eq?: Maybe<PrismicLinkTypeEnum>;
-  ne?: Maybe<PrismicLinkTypeEnum>;
-  in?: Maybe<Array<Maybe<PrismicLinkTypeEnum>>>;
-  nin?: Maybe<Array<Maybe<PrismicLinkTypeEnum>>>;
+export type PrismicBlogPostConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicBlogPostEdge>;
+  nodes: Array<PrismicBlogPost>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<PrismicBlogPostGroupConnection>;
 };
 
-export type IdQueryOperatorInput = {
-  eq?: Maybe<Scalars['ID']>;
-  ne?: Maybe<Scalars['ID']>;
-  in?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  nin?: Maybe<Array<Maybe<Scalars['ID']>>>;
+
+export type PrismicBlogPostConnectionDistinctArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostConnectionMaxArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostConnectionMinArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostConnectionSumArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: PrismicBlogPostFieldsEnum;
+};
+
+export type PrismicBlogPostEdge = {
+  next?: Maybe<PrismicBlogPost>;
+  node: PrismicBlogPost;
+  previous?: Maybe<PrismicBlogPost>;
+};
+
+export type PrismicBlogPostFieldsEnum =
+  | 'uid'
+  | 'data___author___link_type'
+  | 'data___author___isBroken'
+  | 'data___author___url'
+  | 'data___author___target'
+  | 'data___author___size'
+  | 'data___author___id'
+  | 'data___author___type'
+  | 'data___author___tags'
+  | 'data___author___lang'
+  | 'data___author___slug'
+  | 'data___author___uid'
+  | 'data___author___localFile___sourceInstanceName'
+  | 'data___author___localFile___absolutePath'
+  | 'data___author___localFile___relativePath'
+  | 'data___author___localFile___extension'
+  | 'data___author___localFile___size'
+  | 'data___author___localFile___prettySize'
+  | 'data___author___localFile___modifiedTime'
+  | 'data___author___localFile___accessTime'
+  | 'data___author___localFile___changeTime'
+  | 'data___author___localFile___birthTime'
+  | 'data___author___localFile___root'
+  | 'data___author___localFile___dir'
+  | 'data___author___localFile___base'
+  | 'data___author___localFile___ext'
+  | 'data___author___localFile___name'
+  | 'data___author___localFile___relativeDirectory'
+  | 'data___author___localFile___dev'
+  | 'data___author___localFile___mode'
+  | 'data___author___localFile___nlink'
+  | 'data___author___localFile___uid'
+  | 'data___author___localFile___gid'
+  | 'data___author___localFile___rdev'
+  | 'data___author___localFile___ino'
+  | 'data___author___localFile___atimeMs'
+  | 'data___author___localFile___mtimeMs'
+  | 'data___author___localFile___ctimeMs'
+  | 'data___author___localFile___atime'
+  | 'data___author___localFile___mtime'
+  | 'data___author___localFile___ctime'
+  | 'data___author___localFile___birthtime'
+  | 'data___author___localFile___birthtimeMs'
+  | 'data___author___localFile___childrenImageSharp'
+  | 'data___author___localFile___id'
+  | 'data___author___localFile___children'
+  | 'data___author___raw'
+  | 'data___image___alt'
+  | 'data___image___copyright'
+  | 'data___image___dimensions___width'
+  | 'data___image___dimensions___height'
+  | 'data___image___url'
+  | 'data___image___fixed___base64'
+  | 'data___image___fixed___src'
+  | 'data___image___fixed___srcSet'
+  | 'data___image___fixed___srcWebp'
+  | 'data___image___fixed___srcSetWebp'
+  | 'data___image___fixed___sizes'
+  | 'data___image___fixed___width'
+  | 'data___image___fixed___height'
+  | 'data___image___fluid___base64'
+  | 'data___image___fluid___src'
+  | 'data___image___fluid___srcSet'
+  | 'data___image___fluid___srcWebp'
+  | 'data___image___fluid___srcSetWebp'
+  | 'data___image___fluid___sizes'
+  | 'data___image___fluid___aspectRatio'
+  | 'data___image___gatsbyImageData'
+  | 'data___image___localFile___sourceInstanceName'
+  | 'data___image___localFile___absolutePath'
+  | 'data___image___localFile___relativePath'
+  | 'data___image___localFile___extension'
+  | 'data___image___localFile___size'
+  | 'data___image___localFile___prettySize'
+  | 'data___image___localFile___modifiedTime'
+  | 'data___image___localFile___accessTime'
+  | 'data___image___localFile___changeTime'
+  | 'data___image___localFile___birthTime'
+  | 'data___image___localFile___root'
+  | 'data___image___localFile___dir'
+  | 'data___image___localFile___base'
+  | 'data___image___localFile___ext'
+  | 'data___image___localFile___name'
+  | 'data___image___localFile___relativeDirectory'
+  | 'data___image___localFile___dev'
+  | 'data___image___localFile___mode'
+  | 'data___image___localFile___nlink'
+  | 'data___image___localFile___uid'
+  | 'data___image___localFile___gid'
+  | 'data___image___localFile___rdev'
+  | 'data___image___localFile___ino'
+  | 'data___image___localFile___atimeMs'
+  | 'data___image___localFile___mtimeMs'
+  | 'data___image___localFile___ctimeMs'
+  | 'data___image___localFile___atime'
+  | 'data___image___localFile___mtime'
+  | 'data___image___localFile___ctime'
+  | 'data___image___localFile___birthtime'
+  | 'data___image___localFile___birthtimeMs'
+  | 'data___image___localFile___childrenImageSharp'
+  | 'data___image___localFile___id'
+  | 'data___image___localFile___children'
+  | 'data___lead___text'
+  | 'data___lead___html'
+  | 'data___lead___raw'
+  | 'data___sections'
+  | 'data___sections___section_image___alt'
+  | 'data___sections___section_image___copyright'
+  | 'data___sections___section_image___url'
+  | 'data___sections___section_image___gatsbyImageData'
+  | 'data___sections___section_text___text'
+  | 'data___sections___section_text___html'
+  | 'data___sections___section_text___raw'
+  | 'data___sections___section_title___text'
+  | 'data___sections___section_title___html'
+  | 'data___sections___section_title___raw'
+  | 'data___title___text'
+  | 'data___title___html'
+  | 'data___title___raw'
+  | 'dataRaw'
+  | 'prismicId'
+  | 'alternate_languages'
+  | 'alternate_languages___id'
+  | 'alternate_languages___uid'
+  | 'alternate_languages___lang'
+  | 'alternate_languages___type'
+  | 'alternate_languages___raw'
+  | 'first_publication_date'
+  | 'href'
+  | 'lang'
+  | 'last_publication_date'
+  | 'tags'
+  | 'type'
+  | 'url'
+  | '_previewable'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
+
+export type PrismicBlogPostGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicBlogPostEdge>;
+  nodes: Array<PrismicBlogPost>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<PrismicBlogPostGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type PrismicBlogPostGroupConnectionDistinctArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostGroupConnectionMaxArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostGroupConnectionMinArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostGroupConnectionSumArgs = {
+  field: PrismicBlogPostFieldsEnum;
+};
+
+
+export type PrismicBlogPostGroupConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: PrismicBlogPostFieldsEnum;
+};
+
+export type PrismicBlogPostFilterInput = {
+  uid?: Maybe<StringQueryOperatorInput>;
+  data?: Maybe<PrismicBlogPostDataTypeFilterInput>;
+  dataRaw?: Maybe<JsonQueryOperatorInput>;
+  prismicId?: Maybe<IdQueryOperatorInput>;
+  alternate_languages?: Maybe<PrismicAlternateLanguageTypeFilterListInput>;
+  first_publication_date?: Maybe<DateQueryOperatorInput>;
+  href?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  last_publication_date?: Maybe<DateQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  _previewable?: Maybe<IdQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type PrismicBlogPostSortInput = {
+  fields?: Maybe<Array<Maybe<PrismicBlogPostFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type PrismicResumeDataTypeFilterInput = {
+  experiences?: Maybe<PrismicResumeDataExperiencesFilterListInput>;
+  first_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  full_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  github_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
+  linkedin_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
+  other_skills?: Maybe<PrismicResumeDataOtherSkillsFilterListInput>;
+  resume?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  technical_skills?: Maybe<PrismicResumeDataTechnicalSkillsFilterListInput>;
+  thumbnail?: Maybe<PrismicResumeDataThumbnailImageTypeFilterInput>;
+  training?: Maybe<PrismicResumeDataTrainingFilterListInput>;
+};
+
+export type PrismicResumeDataExperiencesFilterListInput = {
+  elemMatch?: Maybe<PrismicResumeDataExperiencesFilterInput>;
+};
+
+export type PrismicResumeDataExperiencesFilterInput = {
+  company_logo?: Maybe<PrismicResumeDataExperiencesCompanyLogoImageTypeFilterInput>;
+  company_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  company_website?: Maybe<PrismicLinkTypeFilterInput>;
+  current?: Maybe<BooleanQueryOperatorInput>;
+  description?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  end_date?: Maybe<DateQueryOperatorInput>;
+  location?: Maybe<PrismicStructuredTextTypeFilterInput>;
+  start_date?: Maybe<DateQueryOperatorInput>;
+  title?: Maybe<PrismicStructuredTextTypeFilterInput>;
+};
+
+export type PrismicResumeDataExperiencesCompanyLogoImageTypeFilterInput = {
+  alt?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  dimensions?: Maybe<PrismicImageDimensionsTypeFilterInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  fixed?: Maybe<ImgixFixedFilterInput>;
+  fluid?: Maybe<ImgixFluidFilterInput>;
+  gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
+  localFile?: Maybe<FileFilterInput>;
 };
 
 export type PrismicResumeDataOtherSkillsFilterListInput = {
@@ -5646,18 +6476,6 @@ export type PrismicResumeDataTrainingSchoolLogoImageTypeFilterInput = {
   fluid?: Maybe<ImgixFluidFilterInput>;
   gatsbyImageData?: Maybe<JsonQueryOperatorInput>;
   localFile?: Maybe<FileFilterInput>;
-};
-
-export type PrismicAlternateLanguageTypeFilterListInput = {
-  elemMatch?: Maybe<PrismicAlternateLanguageTypeFilterInput>;
-};
-
-export type PrismicAlternateLanguageTypeFilterInput = {
-  id?: Maybe<IdQueryOperatorInput>;
-  uid?: Maybe<StringQueryOperatorInput>;
-  lang?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-  raw?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type PrismicResumeConnection = {
@@ -6112,6 +6930,25 @@ export type LayoutQuery = { allPrismicResume: { edges: Array<{ node: (
         & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }
       ) }> } };
 
+export type BlogPostQueryVariables = Exact<{
+  uid?: Maybe<Scalars['String']>;
+  lang?: Maybe<Scalars['String']>;
+}>;
+
+
+export type BlogPostQuery = { allPrismicBlogPost: { edges: Array<{ node: (
+        Pick<PrismicBlogPost, 'uid'>
+        & { data?: Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, lead?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }
+      ) }> } };
+
+export type BlogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BlogQuery = { allPrismicBlogPost: { edges: Array<{ node: (
+        Pick<PrismicBlogPost, 'uid' | 'lang' | 'first_publication_date'>
+        & { data?: Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, image?: Maybe<Pick<PrismicBlogPostDataImageImageType, 'gatsbyImageData'>>, author?: Maybe<{ document?: Maybe<{ data?: Maybe<{ first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }> }> }> }
+      ) }> } };
+
 export type IndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -6120,13 +6957,13 @@ export type IndexQuery = { allPrismicResume: { edges: Array<{ node: (
         & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }> }
       ) }> } };
 
-export type PageQueryVariables = Exact<{
+export type ResumeQueryVariables = Exact<{
   uid?: Maybe<Scalars['String']>;
   lang?: Maybe<Scalars['String']>;
 }>;
 
 
-export type PageQuery = { allPrismicResume: { edges: Array<{ node: (
+export type ResumeQuery = { allPrismicResume: { edges: Array<{ node: (
         Pick<PrismicResume, 'uid'>
         & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'text' | 'html'>>, linkedin_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, github_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, experiences?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataExperiences, 'start_date' | 'current' | 'end_date'>

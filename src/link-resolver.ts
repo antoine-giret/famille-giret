@@ -7,6 +7,8 @@ function linkResolver(doc: PrismicResume): string {
 
   if (doc.type === 'resume')
     return `${language === defaultLanguage ? '' : `/${language}`}/resume/${doc.uid}`;
+  if (doc.type === 'blog_post')
+    return `${language === defaultLanguage ? '' : `/${language}`}/blog/${doc.uid}`;
 
   return '/';
 }

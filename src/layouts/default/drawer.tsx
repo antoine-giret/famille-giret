@@ -120,7 +120,33 @@ function Drawer({ open, data: { allPrismicResume }, openDrawer }: IProps): JSX.E
             </svg>
             {t('navigation.home')}
           </Link>
-          <Box sx={{ alignItems: 'center', display: 'flex', height: 36, padding: '0 16px' }}>
+          <Link
+            activeStyle={{ backgroundColor: 'whitesmoke' }}
+            style={{ ...linkStyle, ...listItemStyle }}
+            to={language === defaultLanguage ? '/blog' : `/${language}/blog`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              style={{ marginRight: 8 }}
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#009688"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+            </svg>
+            {t('navigation.blog')}
+          </Link>
+          <Box
+            sx={{
+              alignItems: 'center',
+              display: 'flex',
+              height: 36,
+              marginTop: 16,
+              padding: '0 16px',
+            }}
+          >
             <Text color="textSecondary" sx={{ fontSize: '0.9em' }}>
               {t('navigation.resumes')}
             </Text>

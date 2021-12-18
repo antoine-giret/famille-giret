@@ -1,0 +1,77 @@
+{
+  "main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid",
+        "placeholder" : "my-blog-post"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Title",
+        "placeholder" : "My blog post"
+      }
+    },
+    "image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Image"
+      }
+    },
+    "author" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "document",
+        "customtypes" : [ "resume" ],
+        "label" : "Author"
+      }
+    },
+    "lead" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,strong,em,hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "Lead",
+        "placeholder" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    },
+    "sections" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "section_image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Section image"
+            }
+          },
+          "section_title" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading3",
+              "label" : "Section title",
+              "placeholder" : "My first section"
+            }
+          },
+          "section_text" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph,preformatted,heading3,heading4,strong,em,hyperlink,image,list-item,o-list-item",
+              "allowTargetBlank" : true,
+              "label" : "Section text",
+              "placeholder" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            }
+          }
+        },
+        "label" : "Sections"
+      }
+    }
+  }
+}

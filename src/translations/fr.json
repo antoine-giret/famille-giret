@@ -2,6 +2,12 @@
   "actions": {
     "back_home": "Revenir à l'accueil"
   },
+  "blog": {
+    "description": "Retrouvez ici l'ensemble de nos articles",
+    "empty_list": "Aucun article n'a encore été publié dans cette langue. Changez la langue pour voir plus de contenu.",
+    "published_by_on": "Publié par {{author}} le {{date}}",
+    "title": "Le blog"
+  },
   "home": {
     "actions": {
       "see_resume": "Voir le CV"
@@ -9,6 +15,7 @@
     "baseline": "Bienvenue sur le site internet de notre famille"
   },
   "navigation": {
+    "blog": "Le blog",
     "home": "Accueil",
     "resumes": "À propos de nous"
   },

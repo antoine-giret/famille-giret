@@ -49,7 +49,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
         <Heading as="h2" color="primary" sx={pageTitleStyle}>
           Hello World !
         </Heading>
-        <Paragraph color="textSecondary" sx={pageDescriptionStyle}>
+        <Paragraph color="textSecondary" sx={{ ...pageDescriptionStyle, marginTop: '8px' }}>
           {t('home.baseline')}
         </Paragraph>
         <Box sx={{ marginTop: 48, maxWidth: '100%', width: 800 }}>
@@ -59,7 +59,6 @@ function Index({ location }: { location: HLocation }): JSX.Element {
               flexWrap: 'wrap',
               gap: 16,
               justifyContent: 'center',
-              marginTop: 16,
             }}
           >
             {data.allPrismicResume.edges
@@ -100,7 +99,9 @@ function Index({ location }: { location: HLocation }): JSX.Element {
                     <Link
                       className="secondary-button"
                       style={{ marginTop: 16 }}
-                      to={`${language === defaultLanguage ? '' : `/${language}`}/resume/${uid}`}
+                      to={`${
+                        language === defaultLanguage ? `/resume/${uid}` : `/${language}`
+                      }/resume/${uid}`}
                     >
                       {t('home.actions.see_resume')}
                     </Link>

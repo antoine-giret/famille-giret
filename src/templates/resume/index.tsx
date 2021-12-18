@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { PageQuery } from '../../../graphql-types';
+import { ResumeQuery } from '../../../graphql-types';
 import { appTitle, defaultLanguage, prismicLanguagesMap } from '../../environment';
 import Layout from '../../layouts/default';
 
@@ -18,7 +18,7 @@ export function ResumeTemplate({
   data: _data,
   pageContext: { lang },
 }: {
-  data: PageQuery;
+  data: ResumeQuery;
   location: HLocation;
   pageContext: { lang: string };
 }): JSX.Element {
@@ -51,7 +51,7 @@ export function ResumeTemplate({
 }
 
 export const query = graphql`
-  query Page($uid: String, $lang: String) {
+  query Resume($uid: String, $lang: String) {
     allPrismicResume(filter: { uid: { eq: $uid }, lang: { eq: $lang } }) {
       edges {
         node {

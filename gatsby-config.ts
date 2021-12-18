@@ -20,6 +20,7 @@ export = {
         linkResolver: () => linkResolver,
         schemas: {
           resume: require('./src/prismic-types/resume.json'),
+          blog_post: require('./src/prismic-types/blog-post.json'),
         },
         lang: '*',
         imageImgixParams: {

@@ -9,9 +9,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
   const pages = await graphql<{
     allPrismicResume: { nodes: Array<{ uid: string; lang: string }> };
+    allPrismicBlogPost: { nodes: Array<{ uid: string; lang: string }> };
   }>(`
     {
       allPrismicResume {
+        nodes {
+          uid
+          lang
+        }
+      }
+      allPrismicBlogPost {
         nodes {
           uid
           lang
@@ -26,6 +33,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     createPage({
       path: language === defaultLanguage ? `resume/${uid}` : `${language}/resume/${uid}`,
       component: resolve(__dirname, 'src/templates/resume/index.tsx'),
+      context: { uid, lang },
+    });
+  });
+
+  pages.data?.allPrismicBlogPost.nodes.forEach(({ uid, lang }) => {
+    const language = prismicLanguagesMap[lang];
+
+    createPage({
+      path: language === defaultLanguage ? `blog/${uid}` : `${language}/blog/${uid}`,
+      component: resolve(__dirname, 'src/templates/blog-post/index.tsx'),
       context: { uid, lang },
     });
   });
