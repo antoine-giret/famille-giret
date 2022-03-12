@@ -58,7 +58,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
             sx={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: 16,
+              gap: [32, 16, 16],
               justifyContent: 'center',
             }}
           >
