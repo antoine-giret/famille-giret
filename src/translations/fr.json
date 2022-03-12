@@ -28,6 +28,7 @@
     "since": "Depuis {{date}}"
   },
   "resume": {
+    "draft": "CV en cours d'écriture !",
     "experiences": "Expériences",
     "github_profile": "Profil Github",
     "linkedin_profile": "Profil LinkedIn",

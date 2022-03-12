@@ -330,14 +330,6 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
   failOnError?: Maybe<Scalars['Boolean']>;
-  repositoryName?: Maybe<Scalars['String']>;
-  accessToken?: Maybe<Scalars['String']>;
-  schemas?: Maybe<SitePluginPluginOptionsSchemas>;
-  lang?: Maybe<Scalars['String']>;
-  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>;
-  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>;
-  apiEndpoint?: Maybe<Scalars['String']>;
-  pageSize?: Maybe<Scalars['Int']>;
   langKeyDefault?: Maybe<Scalars['String']>;
   useLangKeyLayout?: Maybe<Scalars['Boolean']>;
   prefixDefault?: Maybe<Scalars['Boolean']>;
@@ -354,6 +346,19 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+  repositoryName?: Maybe<Scalars['String']>;
+  accessToken?: Maybe<Scalars['String']>;
+  schemas?: Maybe<SitePluginPluginOptionsSchemas>;
+  lang?: Maybe<Scalars['String']>;
+  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParams>;
+  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParams>;
+  apiEndpoint?: Maybe<Scalars['String']>;
+  pageSize?: Maybe<Scalars['Int']>;
+};
+
+export type SitePluginPluginOptionsPolicy = {
+  userAgent?: Maybe<Scalars['String']>;
+  allow?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsSchemas = {
@@ -367,6 +372,7 @@ export type SitePluginPluginOptionsSchemasResume = {
 
 export type SitePluginPluginOptionsSchemasResumeMain = {
   uid?: Maybe<SitePluginPluginOptionsSchemasResumeMainUid>;
+  is_draft?: Maybe<SitePluginPluginOptionsSchemasResumeMainIs_Draft>;
   thumbnail?: Maybe<SitePluginPluginOptionsSchemasResumeMainThumbnail>;
   full_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_Name>;
   first_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_Name>;
@@ -387,6 +393,16 @@ export type SitePluginPluginOptionsSchemasResumeMainUid = {
 export type SitePluginPluginOptionsSchemasResumeMainUidConfig = {
   label?: Maybe<Scalars['String']>;
   placeholder?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainIs_Draft = {
+  type?: Maybe<Scalars['String']>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainIs_DraftConfig>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainIs_DraftConfig = {
+  default_value?: Maybe<Scalars['Boolean']>;
+  label?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsSchemasResumeMainThumbnail = {
@@ -845,11 +861,6 @@ export type SitePluginPluginOptionsImagePlaceholderImgixParams = {
   w?: Maybe<Scalars['Int']>;
   blur?: Maybe<Scalars['Int']>;
   q?: Maybe<Scalars['Int']>;
-};
-
-export type SitePluginPluginOptionsPolicy = {
-  userAgent?: Maybe<Scalars['String']>;
-  allow?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJson = {
@@ -2220,6 +2231,7 @@ export type PrismicResumeDataType = {
   first_name?: Maybe<PrismicStructuredTextType>;
   full_name?: Maybe<PrismicStructuredTextType>;
   github_profile_url?: Maybe<PrismicLinkType>;
+  is_draft?: Maybe<Scalars['Boolean']>;
   linkedin_profile_url?: Maybe<PrismicLinkType>;
   other_skills?: Maybe<Array<Maybe<PrismicResumeDataOtherSkills>>>;
   resume?: Maybe<PrismicStructuredTextType>;
@@ -3860,14 +3872,6 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
-  repositoryName?: Maybe<StringQueryOperatorInput>;
-  accessToken?: Maybe<StringQueryOperatorInput>;
-  schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>;
-  lang?: Maybe<StringQueryOperatorInput>;
-  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>;
-  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>;
-  apiEndpoint?: Maybe<StringQueryOperatorInput>;
-  pageSize?: Maybe<IntQueryOperatorInput>;
   langKeyDefault?: Maybe<StringQueryOperatorInput>;
   useLangKeyLayout?: Maybe<BooleanQueryOperatorInput>;
   prefixDefault?: Maybe<BooleanQueryOperatorInput>;
@@ -3884,6 +3888,23 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+  repositoryName?: Maybe<StringQueryOperatorInput>;
+  accessToken?: Maybe<StringQueryOperatorInput>;
+  schemas?: Maybe<SitePluginPluginOptionsSchemasFilterInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  imageImgixParams?: Maybe<SitePluginPluginOptionsImageImgixParamsFilterInput>;
+  imagePlaceholderImgixParams?: Maybe<SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput>;
+  apiEndpoint?: Maybe<StringQueryOperatorInput>;
+  pageSize?: Maybe<IntQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPolicyFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPolicyFilterInput>;
+};
+
+export type SitePluginPluginOptionsPolicyFilterInput = {
+  userAgent?: Maybe<StringQueryOperatorInput>;
+  allow?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsSchemasFilterInput = {
@@ -3897,6 +3918,7 @@ export type SitePluginPluginOptionsSchemasResumeFilterInput = {
 
 export type SitePluginPluginOptionsSchemasResumeMainFilterInput = {
   uid?: Maybe<SitePluginPluginOptionsSchemasResumeMainUidFilterInput>;
+  is_draft?: Maybe<SitePluginPluginOptionsSchemasResumeMainIs_DraftFilterInput>;
   thumbnail?: Maybe<SitePluginPluginOptionsSchemasResumeMainThumbnailFilterInput>;
   full_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFull_NameFilterInput>;
   first_name?: Maybe<SitePluginPluginOptionsSchemasResumeMainFirst_NameFilterInput>;
@@ -3917,6 +3939,16 @@ export type SitePluginPluginOptionsSchemasResumeMainUidFilterInput = {
 export type SitePluginPluginOptionsSchemasResumeMainUidConfigFilterInput = {
   label?: Maybe<StringQueryOperatorInput>;
   placeholder?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainIs_DraftFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  config?: Maybe<SitePluginPluginOptionsSchemasResumeMainIs_DraftConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsSchemasResumeMainIs_DraftConfigFilterInput = {
+  default_value?: Maybe<BooleanQueryOperatorInput>;
+  label?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsSchemasResumeMainThumbnailFilterInput = {
@@ -4377,15 +4409,6 @@ export type SitePluginPluginOptionsImagePlaceholderImgixParamsFilterInput = {
   q?: Maybe<IntQueryOperatorInput>;
 };
 
-export type SitePluginPluginOptionsPolicyFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsPolicyFilterInput>;
-};
-
-export type SitePluginPluginOptionsPolicyFilterInput = {
-  userAgent?: Maybe<StringQueryOperatorInput>;
-  allow?: Maybe<StringQueryOperatorInput>;
-};
-
 export type SitePluginPackageJsonFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
@@ -4579,17 +4602,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___failOnError'
-  | 'pluginCreator___pluginOptions___repositoryName'
-  | 'pluginCreator___pluginOptions___accessToken'
-  | 'pluginCreator___pluginOptions___lang'
-  | 'pluginCreator___pluginOptions___imageImgixParams___auto'
-  | 'pluginCreator___pluginOptions___imageImgixParams___fit'
-  | 'pluginCreator___pluginOptions___imageImgixParams___q'
-  | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___w'
-  | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur'
-  | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___q'
-  | 'pluginCreator___pluginOptions___apiEndpoint'
-  | 'pluginCreator___pluginOptions___pageSize'
   | 'pluginCreator___pluginOptions___langKeyDefault'
   | 'pluginCreator___pluginOptions___useLangKeyLayout'
   | 'pluginCreator___pluginOptions___prefixDefault'
@@ -4608,6 +4620,17 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___repositoryName'
+  | 'pluginCreator___pluginOptions___accessToken'
+  | 'pluginCreator___pluginOptions___lang'
+  | 'pluginCreator___pluginOptions___imageImgixParams___auto'
+  | 'pluginCreator___pluginOptions___imageImgixParams___fit'
+  | 'pluginCreator___pluginOptions___imageImgixParams___q'
+  | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___w'
+  | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___blur'
+  | 'pluginCreator___pluginOptions___imagePlaceholderImgixParams___q'
+  | 'pluginCreator___pluginOptions___apiEndpoint'
+  | 'pluginCreator___pluginOptions___pageSize'
   | 'pluginCreator___packageJson___name'
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
@@ -4783,17 +4806,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
-  | 'pluginOptions___repositoryName'
-  | 'pluginOptions___accessToken'
-  | 'pluginOptions___lang'
-  | 'pluginOptions___imageImgixParams___auto'
-  | 'pluginOptions___imageImgixParams___fit'
-  | 'pluginOptions___imageImgixParams___q'
-  | 'pluginOptions___imagePlaceholderImgixParams___w'
-  | 'pluginOptions___imagePlaceholderImgixParams___blur'
-  | 'pluginOptions___imagePlaceholderImgixParams___q'
-  | 'pluginOptions___apiEndpoint'
-  | 'pluginOptions___pageSize'
   | 'pluginOptions___langKeyDefault'
   | 'pluginOptions___useLangKeyLayout'
   | 'pluginOptions___prefixDefault'
@@ -4812,6 +4824,17 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___repositoryName'
+  | 'pluginOptions___accessToken'
+  | 'pluginOptions___lang'
+  | 'pluginOptions___imageImgixParams___auto'
+  | 'pluginOptions___imageImgixParams___fit'
+  | 'pluginOptions___imageImgixParams___q'
+  | 'pluginOptions___imagePlaceholderImgixParams___w'
+  | 'pluginOptions___imagePlaceholderImgixParams___blur'
+  | 'pluginOptions___imagePlaceholderImgixParams___q'
+  | 'pluginOptions___apiEndpoint'
+  | 'pluginOptions___pageSize'
   | 'packageJson___name'
   | 'packageJson___description'
   | 'packageJson___version'
@@ -6379,6 +6402,7 @@ export type PrismicResumeDataTypeFilterInput = {
   first_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
   full_name?: Maybe<PrismicStructuredTextTypeFilterInput>;
   github_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
+  is_draft?: Maybe<BooleanQueryOperatorInput>;
   linkedin_profile_url?: Maybe<PrismicLinkTypeFilterInput>;
   other_skills?: Maybe<PrismicResumeDataOtherSkillsFilterListInput>;
   resume?: Maybe<PrismicStructuredTextTypeFilterInput>;
@@ -6609,6 +6633,7 @@ export type PrismicResumeFieldsEnum =
   | 'data___github_profile_url___localFile___id'
   | 'data___github_profile_url___localFile___children'
   | 'data___github_profile_url___raw'
+  | 'data___is_draft'
   | 'data___linkedin_profile_url___link_type'
   | 'data___linkedin_profile_url___isBroken'
   | 'data___linkedin_profile_url___url'
@@ -6941,7 +6966,7 @@ export type BlogPostQuery = { allPrismicBlogPost: { edges: Array<{ node: (
         & { data?: Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, author?: Maybe<{ document?: Maybe<(
               Pick<PrismicResume, 'uid'>
               & { data?: Maybe<{ first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }> }
-            )> }>, image?: Maybe<Pick<PrismicBlogPostDataImageImageType, 'gatsbyImageData'>>, lead?: Maybe<Pick<PrismicStructuredTextType, 'text' | 'html'>> }> }
+            )> }>, image?: Maybe<Pick<PrismicBlogPostDataImageImageType, 'gatsbyImageData'>>, lead?: Maybe<Pick<PrismicStructuredTextType, 'text' | 'html'>>, sections?: Maybe<Array<Maybe<{ section_title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, section_image?: Maybe<Pick<PrismicBlogPostDataSectionsSectionImageImageType, 'gatsbyImageData'>>, section_text?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }>>> }> }
       ) }> } };
 
 export type BlogQueryVariables = Exact<{ [key: string]: never; }>;
@@ -6957,7 +6982,10 @@ export type IndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type IndexQuery = { allPrismicResume: { edges: Array<{ node: (
         Pick<PrismicResume, 'uid' | 'lang'>
-        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }> }
+        & { data?: Maybe<(
+          Pick<PrismicResumeDataType, 'is_draft'>
+          & { thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, first_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
+        )> }
       ) }> } };
 
 export type ResumeQueryVariables = Exact<{
@@ -6968,11 +6996,14 @@ export type ResumeQueryVariables = Exact<{
 
 export type ResumeQuery = { allPrismicResume: { edges: Array<{ node: (
         Pick<PrismicResume, 'uid'>
-        & { data?: Maybe<{ thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'text' | 'html'>>, linkedin_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, github_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, experiences?: Maybe<Array<Maybe<(
+        & { data?: Maybe<(
+          Pick<PrismicResumeDataType, 'is_draft'>
+          & { thumbnail?: Maybe<Pick<PrismicResumeDataThumbnailImageType, 'gatsbyImageData'>>, full_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, resume?: Maybe<Pick<PrismicStructuredTextType, 'text' | 'html'>>, linkedin_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, github_profile_url?: Maybe<Pick<PrismicLinkType, 'url'>>, experiences?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataExperiences, 'start_date' | 'current' | 'end_date'>
             & { company_logo?: Maybe<Pick<PrismicResumeDataExperiencesCompanyLogoImageType, 'gatsbyImageData'>>, company_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, company_website?: Maybe<Pick<PrismicLinkType, 'url'>>, location?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, description?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
           )>>>, training?: Maybe<Array<Maybe<(
             Pick<PrismicResumeDataTraining, 'start_date' | 'end_date'>
             & { school_logo?: Maybe<Pick<PrismicResumeDataTrainingSchoolLogoImageType, 'gatsbyImageData'>>, school_name?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, school_website?: Maybe<Pick<PrismicLinkType, 'url'>>, degree?: Maybe<Pick<PrismicStructuredTextType, 'text'>>, additional_data?: Maybe<Pick<PrismicStructuredTextType, 'html'>> }
-          )>>>, technical_skills?: Maybe<Array<Maybe<{ logo?: Maybe<Pick<PrismicResumeDataTechnicalSkillsLogoImageType, 'gatsbyImageData'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }>>>, other_skills?: Maybe<Array<Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }>>> }> }
+          )>>>, technical_skills?: Maybe<Array<Maybe<{ logo?: Maybe<Pick<PrismicResumeDataTechnicalSkillsLogoImageType, 'gatsbyImageData'>>, title?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }>>>, other_skills?: Maybe<Array<Maybe<{ title?: Maybe<Pick<PrismicStructuredTextType, 'text'>> }>>> }
+        )> }
       ) }> } };

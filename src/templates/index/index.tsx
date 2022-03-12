@@ -22,6 +22,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
               thumbnail {
                 gatsbyImageData(width: 96, placeholder: BLURRED)
               }
+              is_draft
               first_name {
                 text
               }
@@ -68,6 +69,7 @@ function Index({ location }: { location: HLocation }): JSX.Element {
                   node: {
                     uid,
                     data: {
+                      is_draft,
                       thumbnail: { gatsbyImageData: thumbnail },
                       first_name: { text: firstName },
                       resume: { html: resume },
@@ -93,7 +95,9 @@ function Index({ location }: { location: HLocation }): JSX.Element {
                     </Heading>
                     <Box
                       color="textSecondary"
-                      dangerouslySetInnerHTML={{ __html: resume }}
+                      dangerouslySetInnerHTML={{
+                        __html: is_draft ? `<p>${t('resume.draft')}</p>` : resume,
+                      }}
                       sx={{ ...pageDescriptionStyle, marginTop: 16 }}
                     />
                     <Link

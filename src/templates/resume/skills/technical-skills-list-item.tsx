@@ -33,7 +33,7 @@ function TechnicalSkillsListItem({
           width: 64,
         }}
       >
-        <GatsbyImage alt={title} image={logo} />
+        {logo && <GatsbyImage alt={title} image={logo} />}
       </Box>
       <Text>{title}</Text>
     </Box>

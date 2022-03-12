@@ -15,36 +15,43 @@ interface IProps {
 function SkillsList({ data }: IProps): JSX.Element {
   const { t } = useTranslation();
 
+  const technicalSkills = data.technical_skills.filter(({ title }) => title?.text);
+  const otherSkills = data.other_skills.filter(({ title }) => title?.text);
+
+  if (technicalSkills.length === 0 && otherSkills.length === 0) return <></>;
+
   return (
     <Section title={t('resume.skills')}>
-      <Box sx={{ marginTop: 24 }}>
-        <Text color="textSecondary" sx={listSubheaderStyle}>
-          {t('resume.technical_skills')}
-        </Text>
+      {technicalSkills.length > 0 && (
         <Box sx={{ marginTop: 24 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              marginRight: -16,
-              marginTop: -16,
-            }}
-          >
-            {data.technical_skills.map((skillData, index) => (
-              <TechnicalSkillsListItem data={skillData} key={index} />
-            ))}
+          <Text color="textSecondary" sx={listSubheaderStyle}>
+            {t('resume.technical_skills')}
+          </Text>
+          <Box sx={{ marginTop: 24 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                marginRight: -16,
+                marginTop: -16,
+              }}
+            >
+              {technicalSkills.map((skillData, index) => (
+                <TechnicalSkillsListItem data={skillData} key={index} />
+              ))}
+            </Box>
           </Box>
         </Box>
-      </Box>
-      {data.other_skills.length > 0 && (
+      )}
+      {otherSkills.length > 0 && (
         <Box sx={{ marginTop: 24 }}>
           <Text color="textSecondary" sx={listSubheaderStyle}>
             {t('resume.other_skills')}
           </Text>
           <Box sx={{ marginTop: 24 }}>
             <ul>
-              {data.other_skills.map(({ title: { text } }, index) => (
+              {otherSkills.map(({ title: { text } }, index) => (
                 <li key={index}>{text}</li>
               ))}
             </ul>

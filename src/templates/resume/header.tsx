@@ -13,6 +13,7 @@ interface IProps {
 
 function Header({
   data: {
+    is_draft,
     thumbnail,
     full_name: { text: fullName },
     resume: { html: resume },
@@ -34,7 +35,7 @@ function Header({
       </Heading>
       <Box
         color="textSecondary"
-        dangerouslySetInnerHTML={{ __html: resume }}
+        dangerouslySetInnerHTML={{ __html: is_draft ? `<p>${t('resume.draft')}</p>` : resume }}
         sx={{ ...pageDescriptionStyle, marginTop: 16 }}
       />
       {(linkedInProfileUrl || githubProfileUrl) && (

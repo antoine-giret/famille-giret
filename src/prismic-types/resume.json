@@ -7,6 +7,13 @@
         "placeholder": "antoine"
       }
     },
+    "is_draft" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "Draft"
+      }
+    },
     "thumbnail": {
       "type": "Image",
       "config": {

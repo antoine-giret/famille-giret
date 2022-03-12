@@ -31,6 +31,7 @@ export function ResumeTemplate({
   if (!_data) return null;
   const data = _data.allPrismicResume.edges[0].node.data;
   const {
+    is_draft,
     full_name: { text: fullName },
   } = data;
 
@@ -42,9 +43,13 @@ export function ResumeTemplate({
     >
       <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Header data={data} />
-        <ExperiencesList data={data} />
-        <TrainingList data={data} />
-        <SkillsList data={data} />
+        {!is_draft && (
+          <>
+            <ExperiencesList data={data} />
+            <TrainingList data={data} />
+            <SkillsList data={data} />
+          </>
+        )}
       </Box>
     </Layout>
   );
@@ -57,6 +62,7 @@ export const query = graphql`
         node {
           uid
           data {
+            is_draft
             thumbnail {
               gatsbyImageData(width: 96, placeholder: BLURRED)
             }

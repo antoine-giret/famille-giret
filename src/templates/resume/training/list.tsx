@@ -13,9 +13,13 @@ interface IProps {
 function TrainingList({ data }: IProps): JSX.Element {
   const { t } = useTranslation();
 
+  const trainings = data.training.filter(({ school_name }) => school_name?.text);
+
+  if (trainings.length === 0) return <></>;
+
   return (
     <Section title={t('resume.training')}>
-      {data.training.map((_, index) => (
+      {trainings.map((_, index) => (
         <TrainingListItem data={data} key={index} index={index} />
       ))}
     </Section>

@@ -28,6 +28,7 @@
     "since": "Since {{date}}"
   },
   "resume": {
+    "draft": "Resume being written!",
     "experiences": "Experiences",
     "github_profile": "Github profile",
     "linkedin_profile": "LinkedIn profile",

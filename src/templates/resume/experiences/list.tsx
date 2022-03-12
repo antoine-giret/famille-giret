@@ -13,9 +13,13 @@ interface IProps {
 function ExperiencesList({ data }: IProps): JSX.Element {
   const { t } = useTranslation();
 
+  const experiences = data.experiences.filter(({ company_name }) => company_name?.text);
+
+  if (experiences.length === 0) return <></>;
+
   return (
     <Section title={t('resume.experiences')}>
-      {data.experiences.map((_, index) => (
+      {experiences.map((_, index) => (
         <ExperiencesListItem data={data} key={index} index={index} />
       ))}
     </Section>
