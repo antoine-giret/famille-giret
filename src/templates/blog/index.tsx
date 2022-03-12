@@ -4,7 +4,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { DateTime } from 'luxon';
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { BlogQuery } from '../../../graphql-types';
 import { defaultLanguage, prismicLanguagesMap } from '../../environment';
@@ -133,12 +133,16 @@ function Blog({ location }: { location: HLocation }): JSX.Element {
                               {title}
                             </Heading>
                             <Text color="textSecondary" sx={{ fontSize: '0.8em', marginTop: 4 }}>
-                              {t('blog.published_by_on', {
-                                author,
-                                date: DateTime.fromISO(publicationDate)
-                                  .setLocale(language)
-                                  .toLocaleString(DateTime.DATE_MED),
-                              })}
+                              <Trans
+                                components={[<span key={0} />]}
+                                i18nKey="blog.published_by_on"
+                                values={{
+                                  author,
+                                  date: DateTime.fromISO(publicationDate)
+                                    .setLocale(language)
+                                    .toLocaleString(DateTime.DATE_MED),
+                                }}
+                              />
                             </Text>
                           </Box>
                         </Card>
